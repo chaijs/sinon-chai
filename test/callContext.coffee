@@ -1,0 +1,43 @@
+sinon = require("sinon")
+chai = require("chai")
+should = require("chai").should()
+expect = require("chai").expect
+AssertionError = require("chai").AssertionError
+
+sinonChai = require("../lib/sinon-chai")
+chai.use(sinonChai)
+
+describe "Call context", ->
+    spy = null
+    target = null
+    notTheTarget = null
+
+    beforeEach ->
+        spy = sinon.spy()
+        target = {}
+        notTheTarget = {}
+
+    describe "calledOn", ->
+        it "should throw an assertion error if the spy is never called", ->
+            expect(-> spy.should.have.been.calledOn(target)).to.throw(AssertionError)
+
+        it "should throw an assertion error if the spy is called without a context", ->
+            spy()
+
+            expect(-> spy.should.have.been.calledOn(target)).to.throw(AssertionError)
+
+        it "should throw an assertion error if the spy is called on the wrong context", ->
+            spy.call(notTheTarget)
+
+            expect(-> spy.should.have.been.calledOn(target)).to.throw(AssertionError)
+
+        it "should not throw if the spy is called on the specified context", ->
+            spy.call(target)
+
+            expect(-> spy.should.have.been.calledOn(target)).to.not.throw()
+
+        it "should not throw if the spy is called on another context and also the specified context", ->
+            spy.call(notTheTarget)
+            spy.call(target)
+
+            expect(-> spy.should.have.been.calledOn(target)).to.not.throw()
