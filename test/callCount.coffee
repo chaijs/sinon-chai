@@ -7,7 +7,7 @@ AssertionError = require("chai").AssertionError
 sinonChai = require("../lib/sinon-chai")
 chai.use(sinonChai)
 
-describe "Spy matchers", ->
+describe "Call count", ->
     spy = null
 
     beforeEach ->
@@ -27,6 +27,15 @@ describe "Spy matchers", ->
             spy()
 
             expect(-> spy.should.have.been.called).to.not.throw()
+
+    describe "not called", ->
+        it "should not throw when the spy is not called", ->
+            expect(-> spy.should.not.have.been.called).to.not.throw()
+
+        it "should throw an assertion error when the spy is called once", ->
+            spy()
+
+            expect(-> spy.should.not.have.been.called).to.throw(AssertionError)
 
     describe "calledOnce", ->
         it "should throw an assertion error when the spy is not called", ->
@@ -65,7 +74,6 @@ describe "Spy matchers", ->
 
             expect(-> spy.should.have.been.calledTwice).to.throw(AssertionError)
 
-
     describe "calledThrice", ->
         it "should throw an assertion error when the spy is not called", ->
             expect(-> spy.should.have.been.calledThrice).to.throw(AssertionError)
@@ -87,3 +95,11 @@ describe "Spy matchers", ->
             spy()
 
             expect(-> spy.should.have.been.calledThrice).to.not.throw()
+
+        it "should throw an assertion error when the spy is called four times", ->
+            spy()
+            spy()
+            spy()
+            spy()
+
+            expect(-> spy.should.have.been.calledThrice).to.throw(AssertionError)
