@@ -13,17 +13,17 @@
   "author": "Domenic Denicola <domenic@domenicdenicola.com> (http://domenicdenicola.com)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DomenicDenicola/sinon-chai"
+    "url": "https://github.com/domenic/sinon-chai"
   },
   "bugs": {
-    "url": "http://github.com/DomenicDenicola/sinon-chai/issues"
+    "url": "http://github.com/domenic/sinon-chai/issues"
   },
   "directories": {
     "lib": "./lib"
   },
-  "main": "./lib/sinon-qunit.js",
+  "main": "./lib/sinon-chai.js",
   "scripts": {
-    "test": ".\\node_modules\\.bin\\mocha"
+    "test": "node ./node_modules/mocha/bin/mocha"
   },
   "engines": {
     "node": "*"
@@ -34,6 +34,6 @@
   },
   "devDependencies": {
     "coffee-script": "~1.2.0",
-    "mocha": "~0.10.2"
+    "mocha": "~0.11.0"
   }
 }
