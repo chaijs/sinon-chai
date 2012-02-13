@@ -23,7 +23,8 @@
   },
   "main": "./lib/sinon-chai.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha"
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "lint": "node ./node_modules/jshint/bin/hint ./lib"
   },
   "engines": {
     "node": "*"
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "coffee-script": "~1.2.0",
-    "mocha": "~0.12.0"
+    "mocha": "~0.12.0",
+    "jshint": "~0.5.7"
   }
 }
