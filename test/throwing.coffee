@@ -1,12 +1,3 @@
-sinon = require("sinon")
-chai = require("chai")
-should = require("chai").should()
-expect = require("chai").expect
-AssertionError = require("chai").AssertionError
-
-sinonChai = require("../lib/sinon-chai")
-chai.use(sinonChai)
-
 swallow = (thrower) ->
     try
         thrower()
