@@ -1,7 +1,7 @@
 Sinon.JS Assertions for Chai
 ============================
 
-**sinon-chai** provides a set of custom assertions for using the [Sinon.JS][sinon] spy, stub, and mocking framework
+**Sinon–Chai** provides a set of custom assertions for using the [Sinon.JS][sinon] spy, stub, and mocking framework
 with the [Chai][chai] assertion library. You get all the benefits of Chai with all the powerful tools of Sinon.JS.
 
 Instead of using Sinon.JS's assertions:
@@ -26,13 +26,13 @@ mySpy.should.have.been.calledWith("foo");
 
 ## Assertions
 
-All of your favorite Sinon.JS assertions made their way into sinon-chai. We show the `should` syntax here; the `expect`
+All of your favorite Sinon.JS assertions made their way into Sinon–Chai. We show the `should` syntax here; the `expect`
 equivalent is also available.
 
 <table>
     <tr>
         <th>Sinon.JS property/method</th>
-        <th>sinon-chai assertion</th>
+        <th>Sinon–Chai assertion</th>
     </tr>
     <tr>
         <td>called</td>
@@ -107,6 +107,8 @@ individual spy calls, stubs, and mocks as well.
 
 ## Installation and Usage
 
+### Node
+
 Do an `npm install sinon-chai` to get up and running. Then:
 
 ```javascript
@@ -117,7 +119,31 @@ chai.use(sinonChai);
 ```
 
 You can of course put this code in a common test fixture file; for an example using [Mocha][mocha], see
-[the sinon-chai tests themselves][fixturedemo].
+[the Sinon–Chai tests themselves][fixturedemo].
+
+### AMD
+
+Sinon–Chai supports being used as an [AMD][amd] module, registering itself anonymously (just like Chai). So, assuming
+you have configured your loader to map the Chai and Sinon–Chai files to the respective module IDs `"chai"` and
+`"sinon-chai"`, you can use them as follows:
+
+```javascript
+define(function (require, exports, module) {
+    var chai = require("chai");
+    var sinonChai = require("sinon-chai");
+
+    chai.use(sinonChai);
+});
+```
+
+### `<script>` tag
+
+If you include Sinon–Chai directly with a `<script>` tag, it creates a `window.sinonChai` global (again, just like
+Chai). Then your setup code becomes:
+
+```javascript
+window.chai.use(window.sinonChai);
+```
 
 
 [sinon]: http://sinonjs.org/
@@ -125,3 +151,4 @@ You can of course put this code in a common test fixture file; for an example us
 [mocha]: http://visionmedia.github.com/mocha/
 [fixturedemo]: https://github.com/domenic/sinon-chai/tree/master/test/
 [spymethods]: http://sinonjs.org/docs/#spies-api
+[amd]: https://github.com/amdjs/amdjs-api/wiki/AMD
