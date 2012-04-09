@@ -9,7 +9,7 @@
     "stubs",
     "mocks"
   ],
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Domenic Denicola <domenic@domenicdenicola.com> (http://domenicdenicola.com)",
   "repository": {
     "type": "git",
@@ -30,12 +30,12 @@
     "node": "*"
   },
   "dependencies": {
-    "chai": ">=0.3.3",
     "sinon": "1"
   },
   "devDependencies": {
     "coffee-script": "1",
-    "mocha": "*",
+    "mocha": "1",
+    "chai": ">=0.3.3 <=0.5",
     "jshint": "*"
   }
 }
