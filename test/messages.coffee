@@ -165,13 +165,13 @@
             swallow(throwingSpy)
 
             expect(-> spy.should.have.thrown()).to
-                .throw(/expected spy to have thrown/)
+                .throw("expected spy to have thrown")
 
             expect(-> throwingSpy.should.have.thrown("TypeError")).to
-                .throw(/expected spy to have thrown TypeError/)
+                .throw("expected spy to have thrown TypeError")
 
             expect(-> throwingSpy.should.have.thrown({ message: "x" })).to
-                .throw(/expected spy to have thrown \{ message: 'x' \}/)
+                .throw("expected spy to have thrown { message: 'x' }")
 
         it "should be correct for the negated cases", ->
             error = new Error("boo!")
@@ -180,13 +180,13 @@
             swallow(spy)
 
             expect(-> spy.should.not.have.thrown()).to
-                .throw(/expected spy to not have thrown/)
+                .throw("expected spy to not have thrown")
 
             expect(-> spy.should.not.have.thrown("Error")).to
-                .throw(/expected spy to not have thrown Error/)
+                .throw("expected spy to not have thrown Error")
 
             expect(-> spy.should.not.have.thrown(error)).to
-                .throw(/expected spy to not have thrown \[Error: boo!\]/)
+                .throw("expected spy to not have thrown [Error: boo!]")
 
         it "should be correct for the always cases", ->
             spy = sinon.spy()
@@ -196,13 +196,13 @@
             swallow(throwingSpy)
 
             expect(-> spy.should.have.always.thrown()).to
-                .throw(/expected spy to always have thrown/)
+                .throw("expected spy to always have thrown")
 
             expect(-> throwingSpy.should.have.always.thrown("TypeError")).to
-                .throw(/expected spy to always have thrown TypeError/)
+                .throw("expected spy to always have thrown TypeError")
 
             expect(-> throwingSpy.should.have.always.thrown({ message: "x" })).to
-                .throw(/expected spy to always have thrown \{ message: 'x' \}/)
+                .throw("expected spy to always have thrown { message: 'x' }")
 
     describe "when used on a non-spy", ->
         notSpy = ->

@@ -36,7 +36,7 @@
   "devDependencies": {
     "coffee-script": "1",
     "mocha": "1",
-    "chai": ">=0.3.3 <=0.5",
+    "chai": "~0.5",
     "cover": "*",
     "jshint": "*"
   }
