@@ -203,3 +203,12 @@
 
             expect(-> throwingSpy.should.have.always.thrown({ message: "x" })).to
                 .throw(/expected spy to always have thrown \{ message: 'x' \}/)
+
+    describe "when used on a non-spy", ->
+        notSpy = ->
+
+        it "should be informative for properties", ->
+            expect(-> notSpy.should.have.been.called).to.throw(TypeError, /not a spy/)
+
+        it "should be informative for methods", ->
+            expect(-> notSpy.should.have.been.calledWith("foo")).to.throw(TypeError, /not a spy/)
