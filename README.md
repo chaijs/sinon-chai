@@ -138,11 +138,12 @@ define(function (require, exports, module) {
 
 ### `<script>` tag
 
-If you include Sinon–Chai directly with a `<script>` tag, it creates a `window.sinonChai` global (again, just like
-Chai). Then your setup code becomes:
+If you include Sinon–Chai directly with a `<script>` tag, after the one for Chai itself, then it will automatically plug
+in to Chai and be ready for use:
 
-```javascript
-window.chai.use(window.sinonChai);
+```html
+<script src="chai.js"></script>
+<script src="sinon-chai.js"></script>
 ```
 
 
