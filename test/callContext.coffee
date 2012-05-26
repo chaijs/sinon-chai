@@ -16,22 +16,26 @@ describe "Call context", ->
             spy()
 
             expect(-> spy.should.have.been.calledOn(target)).to.throw(AssertionError)
+            expect(-> spy.getCall(0).should.have.been.calledOn(target)).to.throw(AssertionError)
 
         it "should throw an assertion error if the spy is called on the wrong context", ->
             spy.call(notTheTarget)
 
             expect(-> spy.should.have.been.calledOn(target)).to.throw(AssertionError)
+            expect(-> spy.getCall(0).should.have.been.calledOn(target)).to.throw(AssertionError)
 
         it "should not throw if the spy is called on the specified context", ->
             spy.call(target)
 
             expect(-> spy.should.have.been.calledOn(target)).to.not.throw()
+            expect(-> spy.getCall(0).should.have.been.calledOn(target)).to.not.throw()
 
         it "should not throw if the spy is called on another context and also the specified context", ->
             spy.call(notTheTarget)
             spy.call(target)
 
             expect(-> spy.should.have.been.calledOn(target)).to.not.throw()
+            expect(-> spy.getCall(1).should.have.been.calledOn(target)).to.not.throw()
 
     describe "always calledOn", ->
         it "should throw an assertion error if the spy is never called", ->

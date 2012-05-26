@@ -6,6 +6,7 @@ describe "Throwing", ->
             spy()
 
             expect(-> spy.should.have.thrown()).to.throw(AssertionError)
+            expect(-> spy.getCall(0).should.have.thrown()).to.throw(AssertionError)
 
         it "should not throw if the spy throws", ->
             spy = sinon.spy.create(-> throw new Error())
@@ -13,6 +14,7 @@ describe "Throwing", ->
             swallow(spy)
 
             expect(-> spy.should.have.thrown()).to.not.throw()
+            expect(-> spy.getCall(0).should.have.thrown()).to.not.throw()
 
         it "should not throw if the spy throws once but not the next time", ->
             spy = sinon.spy.create(-> throw new Error() unless spy.callCount > 1)
@@ -21,6 +23,7 @@ describe "Throwing", ->
             swallow(spy)
 
             expect(-> spy.should.have.thrown()).to.not.throw()
+            expect(-> spy.getCall(0).should.have.thrown()).to.not.throw()
 
     describe "thrown(errorObject)", ->
         error = null
@@ -34,6 +37,7 @@ describe "Throwing", ->
             spy()
 
             expect(-> spy.should.have.thrown(error)).to.throw(AssertionError)
+            expect(-> spy.getCall(0).should.have.thrown(error)).to.throw(AssertionError)
 
         it "should throw an assertion error if the spy throws the wrong error", ->
             spy = sinon.spy.create(-> new Error("eek!"))
@@ -41,6 +45,7 @@ describe "Throwing", ->
             swallow(spy)
 
             expect(-> spy.should.have.thrown(error)).to.throw(AssertionError)
+            expect(-> spy.getCall(0).should.have.thrown(error)).to.throw(AssertionError)
 
         it "should not throw if the spy throws", ->
             spy = sinon.spy.create(-> throw error)
@@ -48,6 +53,7 @@ describe "Throwing", ->
             swallow(spy)
 
             expect(-> spy.should.have.thrown(error)).to.not.throw()
+            expect(-> spy.getCall(0).should.have.thrown(error)).to.not.throw()
 
         it "should not throw if the spy throws once but not the next time", ->
             spy = sinon.spy.create(-> throw error unless spy.callCount > 1)
@@ -56,6 +62,7 @@ describe "Throwing", ->
             swallow(spy)
 
             expect(-> spy.should.have.thrown(error)).to.not.throw()
+            expect(-> spy.getCall(0).should.have.thrown(error)).to.not.throw()
 
     describe "thrown(errorTypeString)", ->
         error = null
@@ -69,6 +76,7 @@ describe "Throwing", ->
             spy()
 
             expect(-> spy.should.have.thrown("TypeError")).to.throw(AssertionError)
+            expect(-> spy.getCall(0).should.have.thrown("TypeError")).to.throw(AssertionError)
 
         it "should throw an assertion error if the spy throws the wrong type of error", ->
             spy = sinon.spy.create(-> throw new Error("boo!"))
@@ -76,6 +84,7 @@ describe "Throwing", ->
             swallow(spy)
 
             expect(-> spy.should.have.thrown("TypeError")).to.throw(AssertionError)
+            expect(-> spy.getCall(0).should.have.thrown("TypeError")).to.throw(AssertionError)
 
         it "should not throw if the spy throws the correct type of error", ->
             spy = sinon.spy.create(-> throw new TypeError("eek!"))
@@ -83,6 +92,7 @@ describe "Throwing", ->
             swallow(spy)
 
             expect(-> spy.should.have.thrown("TypeError")).to.not.throw()
+            expect(-> spy.getCall(0).should.have.thrown("TypeError")).to.not.throw()
 
         it "should not throw if the spy throws once but not the next time", ->
             spy = sinon.spy.create(-> throw error unless spy.callCount > 1)
@@ -91,6 +101,7 @@ describe "Throwing", ->
             swallow(spy)
 
             expect(-> spy.should.have.thrown("TypeError")).to.not.throw()
+            expect(-> spy.getCall(0).should.have.thrown("TypeError")).to.not.throw()
 
     describe "always thrown", ->
         error = null
