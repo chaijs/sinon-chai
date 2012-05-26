@@ -38,6 +38,6 @@
     "mocha": "1",
     "chai": "1",
     "cover": "*",
-    "jshint": "*"
+    "jshint": ">= 0.7.1"
   }
 }
