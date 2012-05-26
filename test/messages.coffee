@@ -204,6 +204,14 @@
             expect(-> throwingSpy.should.have.always.thrown({ message: "x" })).to
                 .throw("expected spy to always have thrown { message: 'x' }")
 
+    describe "when used on a spy-call", ->
+        it "should expect properly on the call", ->
+            spy = sinon.spy()
+            spy()
+            call = spy.getCall(0)
+            expect(-> call.should.have.been.calledWith())
+                .not.to.throw()
+
     describe "when used on a non-spy", ->
         notSpy = ->
 
