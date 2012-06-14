@@ -6,5 +6,6 @@
 /cover_html/
 
 /test/
-/.jshintrc
 /.coverignore
+/.jshintrc
+/.npmignore
