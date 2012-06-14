@@ -4,3 +4,7 @@
 /.coverage_data/
 /.coverage_debug/
 /cover_html/
+
+/test/
+/.jshintrc
+/.coverignore
