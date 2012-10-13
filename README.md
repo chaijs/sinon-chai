@@ -146,6 +146,10 @@ in to Chai and be ready for use:
 <script src="sinon-chai.js"></script>
 ```
 
+### Ruby on Rails
+
+Thanks to [Cymen Vig][], there's now [a Ruby gem][] of Sinon–Chai that integrates it with the Rails asset pipeline!
+
 
 [sinon]: http://sinonjs.org/
 [chai]: http://chaijs.com/
@@ -153,3 +157,5 @@ in to Chai and be ready for use:
 [fixturedemo]: https://github.com/domenic/sinon-chai/tree/master/test/
 [spymethods]: http://sinonjs.org/docs/#spies-api
 [amd]: https://github.com/amdjs/amdjs-api/wiki/AMD
+[Cymen Vig]: https://github.com/cymen
+[a Ruby gem]: https://github.com/cymen/sinon-chai-rails
