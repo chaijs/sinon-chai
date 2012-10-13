@@ -1,8 +1,8 @@
 Sinon.JS Assertions for Chai
 ============================
 
-**Sinon–Chai** provides a set of custom assertions for using the [Sinon.JS][sinon] spy, stub, and mocking framework
-with the [Chai][chai] assertion library. You get all the benefits of Chai with all the powerful tools of Sinon.JS.
+**Sinon–Chai** provides a set of custom assertions for using the [Sinon.JS][] spy, stub, and mocking framework with the
+[Chai][] assertion library. You get all the benefits of Chai with all the powerful tools of Sinon.JS.
 
 Instead of using Sinon.JS's assertions:
 
@@ -118,13 +118,13 @@ var sinonChai = require("sinon-chai");
 chai.use(sinonChai);
 ```
 
-You can of course put this code in a common test fixture file; for an example using [Mocha][mocha], see
+You can of course put this code in a common test fixture file; for an example using [Mocha][], see
 [the Sinon–Chai tests themselves][fixturedemo].
 
 ### AMD
 
-Sinon–Chai supports being used as an [AMD][amd] module, registering itself anonymously (just like Chai). So, assuming
-you have configured your loader to map the Chai and Sinon–Chai files to the respective module IDs `"chai"` and
+Sinon–Chai supports being used as an [AMD][] module, registering itself anonymously (just like Chai). So, assuming you
+have configured your loader to map the Chai and Sinon–Chai files to the respective module IDs `"chai"` and
 `"sinon-chai"`, you can use them as follows:
 
 ```javascript
@@ -151,11 +151,11 @@ in to Chai and be ready for use:
 Thanks to [Cymen Vig][], there's now [a Ruby gem][] of Sinon–Chai that integrates it with the Rails asset pipeline!
 
 
-[sinon]: http://sinonjs.org/
-[chai]: http://chaijs.com/
-[mocha]: http://visionmedia.github.com/mocha/
-[fixturedemo]: https://github.com/domenic/sinon-chai/tree/master/test/
+[Sinon.JS]: http://sinonjs.org/
+[Chai]: http://chaijs.com/
 [spymethods]: http://sinonjs.org/docs/#spies-api
-[amd]: https://github.com/amdjs/amdjs-api/wiki/AMD
+[Mocha]: http://visionmedia.github.com/mocha/
+[fixturedemo]: https://github.com/domenic/sinon-chai/tree/master/test/
+[AMD]: https://github.com/amdjs/amdjs-api/wiki/AMD
 [Cymen Vig]: https://github.com/cymen
 [a Ruby gem]: https://github.com/cymen/sinon-chai-rails
