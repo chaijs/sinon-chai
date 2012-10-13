@@ -42,9 +42,9 @@
             spyB.displayName = "spyB"
 
             expect(-> spyA.should.have.been.calledBefore(spyB)).to
-                .throw("expected spyA to have been called before spyB")
+                .throw("expected spyA to have been called before function spyB() {}")
             expect(-> spyB.should.have.been.calledAfter(spyA)).to
-                .throw("expected spyB to have been called after spyA")
+                .throw("expected spyB to have been called after function spyA() {}")
 
         it "should be correct for the negated cases", ->
             spyA = sinon.spy()
@@ -57,9 +57,9 @@
             spyB()
 
             expect(-> spyA.should.not.have.been.calledBefore(spyB)).to
-                .throw("expected spyA to not have been called before spyB")
+                .throw("expected spyA to not have been called before function spyB() {}")
             expect(-> spyB.should.not.have.been.calledAfter(spyA)).to
-                .throw("expected spyB to not have been called after spyA")
+                .throw("expected spyB to not have been called after function spyA() {}")
 
     describe "about call context", ->
         it "should be correct for the basic case", ->
@@ -69,7 +69,8 @@
 
             spy.call(badContext)
 
-            expected = "expected spy to have been called with {} as this, but it was called with " + spy.printf("%t")
+            expected = "expected spy to have been called with {  } as this, but it was called with " +
+                spy.printf("%t") + " instead"
             expect(-> spy.should.have.been.calledOn(context)).to.throw(expected)
             expect(-> spy.getCall(0).should.have.been.calledOn(context)).to.throw(expected)
 
@@ -79,7 +80,7 @@
 
             spy.call(context)
 
-            expected = "expected spy to not have been called with {} as this"
+            expected = "expected spy to not have been called with {  } as this"
             expect(-> spy.should.not.have.been.calledOn(context)).to.throw(expected)
             expect(-> spy.getCall(0).should.not.have.been.calledOn(context)).to.throw(expected)
 
@@ -90,8 +91,8 @@
 
             spy.call(badContext)
 
-            expected = "expected spy to always have been called with {} as this, but it was called with " +
-                spy.printf("%t")
+            expected = "expected spy to always have been called with {  } as this, but it was called with " +
+                spy.printf("%t") + " instead"
             expect(-> spy.should.always.have.been.calledOn(context)).to.throw(expected)
 
     describe "about call arguments", ->
@@ -180,9 +181,9 @@
                 .throw("expected spy to have thrown TypeError")
 
             expect(-> throwingSpy.should.have.thrown({ message: "x" })).to
-                .throw("expected spy to have thrown { message: 'x' }")
+                .throw('expected spy to have thrown { message: "x" }')
             expect(-> throwingSpy.getCall(0).should.have.thrown({ message: "x" })).to
-                .throw("expected spy to have thrown { message: 'x' }")
+                .throw('expected spy to have thrown { message: "x" }')
 
         it "should be correct for the negated cases", ->
             error = new Error("boo!")
@@ -197,9 +198,9 @@
             expect(-> spy.getCall(0).should.not.have.thrown("Error")).to.throw("expected spy to not have thrown Error")
 
             expect(-> spy.should.not.have.thrown(error)).to
-                .throw("expected spy to not have thrown [Error: boo!]")
+                .throw("expected spy to not have thrown Error: boo!")
             expect(-> spy.getCall(0).should.not.have.thrown(error)).to
-                .throw("expected spy to not have thrown [Error: boo!]")
+                .throw("expected spy to not have thrown Error: boo!")
 
         it "should be correct for the always cases", ->
             spy = sinon.spy()
@@ -215,7 +216,7 @@
                 .throw("expected spy to always have thrown TypeError")
 
             expect(-> throwingSpy.should.have.always.thrown({ message: "x" })).to
-                .throw("expected spy to always have thrown { message: 'x' }")
+                .throw('expected spy to always have thrown { message: "x" }')
 
     describe "when used on a non-spy/non-call", ->
         notSpy = ->
