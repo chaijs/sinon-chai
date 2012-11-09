@@ -139,11 +139,12 @@ define(function (require, exports, module) {
 ### `<script>` tag
 
 If you include Sinon–Chai directly with a `<script>` tag, after the one for Chai itself, then it will automatically plug
-in to Chai and be ready for use:
+in to Chai and be ready for use. Note that you'll want to get the latest browser build of Sinon.JS as well:
 
 ```html
 <script src="chai.js"></script>
 <script src="sinon-chai.js"></script>
+<script src="sinon.js"></script>
 ```
 
 ### Ruby on Rails
