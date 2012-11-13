@@ -14,7 +14,7 @@
   "license": "WTFPL",
   "repository": {
     "type": "git",
-    "url": "https://github.com/domenic/sinon-chai"
+    "url": "git://github.com/domenic/sinon-chai.git"
   },
   "bugs": {
     "url": "http://github.com/domenic/sinon-chai/issues"
@@ -27,9 +27,6 @@
     "test": "mocha",
     "lint": "jshint ./lib",
     "cover": "cover run node_modules/mocha/bin/_mocha && cover report html && start ./cover_html/index.html"
-  },
-  "engines": {
-    "node": "*"
   },
   "dependencies": {
     "sinon": ">=1.5 <2"
