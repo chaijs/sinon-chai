@@ -26,7 +26,7 @@
   "scripts": {
     "test": "mocha",
     "lint": "jshint ./lib",
-    "cover": "cover run node_modules/mocha/bin/_mocha && cover report html && start ./cover_html/index.html"
+    "cover": "cover run node_modules/mocha/bin/_mocha && cover report html && opener ./cover_html/index.html"
   },
   "dependencies": {
     "sinon": ">=1.5 <2"
@@ -36,6 +36,7 @@
     "mocha": "1",
     "chai": "1",
     "cover": "*",
-    "jshint": ">= 0.9.1"
+    "jshint": ">= 0.9.1",
+    "opener": ">= 1.3.0"
   }
 }
