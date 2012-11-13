@@ -95,6 +95,34 @@
                 spy.printf("%t") + " instead"
             expect(-> spy.should.always.have.been.calledOn(context)).to.throw(expected)
 
+    describe "about calling with new", ->
+        it "should be correct for the basic case", ->
+            spy = sinon.spy()
+
+            spy()
+
+            expected = "expected spy to have been called with new"
+            expect(-> spy.should.have.been.calledWithNew).to.throw(expected)
+            expect(-> spy.getCall(0).should.have.been.calledWithNew).to.throw(expected)
+
+        it "should be correct for the negated case", ->
+            spy = sinon.spy()
+
+            new spy()
+
+            expected = "expected spy to not have been called with new"
+            expect(-> spy.should.not.have.been.calledWithNew).to.throw(expected)
+            expect(-> spy.getCall(0).should.not.have.been.calledWithNew).to.throw(expected)
+
+        it "should be correct for the always case", ->
+            spy = sinon.spy()
+
+            new spy()
+            spy()
+
+            expected = "expected spy to always have been called with new"
+            expect(-> spy.should.always.have.been.calledWithNew).to.throw(expected)
+
     describe "about call arguments", ->
         it "should be correct for the basic cases", ->
             spy = sinon.spy()

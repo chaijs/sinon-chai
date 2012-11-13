@@ -59,6 +59,14 @@ equivalent is also available.
         <td>spy1.should.have.been.calledAfter(spy2)</td>
     </tr>
     <tr>
+        <td>calledWithNew</td>
+        <td>spy.should.have.been.calledWithNew</td>
+    </tr>
+    <tr>
+        <td>alwaysCalledWithNew</td>
+        <td>spy.should.always.have.been.calledWithNew</td>
+    </tr>
+    <tr>
         <td>calledOn</td>
         <td>spy.should.have.been.calledOn(context)</td>
     </tr>
