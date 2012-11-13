@@ -1,5 +1,4 @@
-Sinon.JS Assertions for Chai
-============================
+# Sinon.JS Assertions for Chai
 
 **Sinon–Chai** provides a set of custom assertions for using the [Sinon.JS][] spy, stub, and mocking framework with the
 [Chai][] assertion library. You get all the benefits of Chai with all the powerful tools of Sinon.JS.
