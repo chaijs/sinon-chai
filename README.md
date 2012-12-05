@@ -90,6 +90,14 @@ equivalent is also available.
         <td>spy.should.always.have.been.calledWithExactly(...args)</td>
     </tr>
     <tr>
+        <td>calledWithMatch</td>
+        <td>spy.should.have.been.calledWithMatch(...args)</td>
+    </tr>
+    <tr>
+        <td>alwaysCalledWithMatch</td>
+        <td>spy.should.always.have.been.calledWithMatch(...args)</td>
+    </tr>
+    <tr>
         <td>returned</td>
         <td>spy.should.have.returned(returnVal)</td>
     </tr>
