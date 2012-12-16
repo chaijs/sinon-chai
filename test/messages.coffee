@@ -133,11 +133,15 @@
                 .throw("expected spy to have been called with arguments a, b, c\n    spy(1, 2, 3)")
             expect(-> spy.should.have.been.calledWithExactly("a", "b", "c")).to
                 .throw("expected spy to have been called with exact arguments a, b, c\n    spy(1, 2, 3)")
+            expect(-> spy.should.have.been.calledWithMatch(sinon.match("foo"))).to
+                .throw("expected spy to have been called with arguments matching match(\"foo\")\n    spy(1, 2, 3)")
 
             expect(-> spy.getCall(0).should.have.been.calledWith("a", "b", "c")).to
                 .throw("expected spy to have been called with arguments a, b, c\n    spy(1, 2, 3)")
             expect(-> spy.getCall(0).should.have.been.calledWithExactly("a", "b", "c")).to
                 .throw("expected spy to have been called with exact arguments a, b, c\n    spy(1, 2, 3)")
+            expect(-> spy.getCall(0).should.have.been.calledWithMatch(sinon.match("foo"))).to
+                .throw("expected spy to have been called with arguments matching match(\"foo\")\n    spy(1, 2, 3)")
 
         it "should be correct for the negated cases", ->
             spy = sinon.spy()
@@ -148,11 +152,15 @@
                 .throw("expected spy to not have been called with arguments 1, 2, 3")
             expect(-> spy.should.not.have.been.calledWithExactly(1, 2, 3)).to
                 .throw("expected spy to not have been called with exact arguments 1, 2, 3")
+            expect(-> spy.should.not.have.been.calledWithMatch(sinon.match(1))).to
+                .throw("expected spy to not have been called with arguments matching match(1)")
 
             expect(-> spy.getCall(0).should.not.have.been.calledWith(1, 2, 3)).to
                 .throw("expected spy to not have been called with arguments 1, 2, 3")
             expect(-> spy.getCall(0).should.not.have.been.calledWithExactly(1, 2, 3)).to
                 .throw("expected spy to not have been called with exact arguments 1, 2, 3")
+            expect(-> spy.getCall(0).should.not.have.been.calledWithMatch(sinon.match(1))).to
+                .throw("expected spy to not have been called with arguments matching match(1)")
 
         it "should be correct for the always cases", ->
             spy = sinon.spy()
@@ -168,6 +176,11 @@
                 "    spy(1, 2, 3)\n    spy(a, b, c)"
             expect(-> spy.should.always.have.been.calledWithExactly(1, 2, 3)).to
                 .throw(expectedExactly)
+
+            expectedMatch = "expected spy to always have been called with arguments matching match(1)\n" +
+                "    spy(1, 2, 3)\n    spy(a, b, c)"
+            expect(-> spy.should.always.have.been.calledWithMatch(sinon.match(1))).to
+                .throw(expectedMatch)
 
     describe "about returning", ->
         it "should be correct for the basic case", ->
