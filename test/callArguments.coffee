@@ -1,3 +1,5 @@
+"use strict"
+
 describe "Call arguments", ->
     spy = null
     arg1 = null

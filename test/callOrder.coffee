@@ -1,3 +1,5 @@
+"use strict"
+
 describe "Call order", ->
     spy1 = null
     spy2 = null

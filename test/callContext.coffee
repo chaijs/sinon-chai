@@ -1,3 +1,5 @@
+"use strict"
+
 describe "Call context", ->
     spy = null
     target = null

@@ -1,3 +1,5 @@
+"use strict"
+
 describe "Regressions", ->
     specify "GH-19: functions with `proxy` properties", ->
         func = ->

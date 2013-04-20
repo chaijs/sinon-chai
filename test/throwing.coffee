@@ -1,3 +1,5 @@
+"use strict"
+
 describe "Throwing", ->
     describe "thrown()", ->
         it "should throw an assertion error if the spy does not throw at all", ->

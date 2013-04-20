@@ -1,4 +1,6 @@
-﻿describe "Messages", ->
+﻿"use strict"
+
+describe "Messages", ->
     describe "about call count", ->
         it "should be correct for the base cases", ->
             spy = sinon.spy()

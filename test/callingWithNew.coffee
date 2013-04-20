@@ -1,3 +1,5 @@
+"use strict"
+
 describe "Calling with new", ->
     spy = null
 
