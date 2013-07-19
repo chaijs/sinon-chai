@@ -1,0 +1,21 @@
+{
+  "name": "sinon-chai",
+  "repo": "jamestalmage/sinon-chai",
+  "description": "Extends Chai with assertions for the Sinon.JS mocking framework.",
+  "version": "2.4.0",
+  "keywords": [
+      "sinon",
+      "chai",
+      "testing",
+      "spies",
+      "stubs",
+      "mocks"
+  ],
+  "dependencies": {},
+  "development": {},
+  "license": "WTFPL",
+  "main": "lib/sinon-chai.js",
+  "scripts": [
+    "lib/sinon-chai.js"
+  ]
+}
