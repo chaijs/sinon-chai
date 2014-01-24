@@ -41,6 +41,10 @@ equivalent is also available.
             <td>spy.should.have.been.called</td>
         </tr>
         <tr>
+            <td>callCount</td>
+            <td>spy.should.have.callCount(n)</td>
+        </tr>
+        <tr>
             <td>calledOnce</td>
             <td>spy.should.have.been.calledOnce</td>
         </tr>
