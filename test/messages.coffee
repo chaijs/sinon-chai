@@ -1,5 +1,7 @@
 ﻿"use strict"
 
+sinon = require("sinon")
+
 describe "Messages", ->
     describe "about call count", ->
         it "should be correct for the base cases", ->

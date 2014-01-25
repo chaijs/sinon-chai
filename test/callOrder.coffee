@@ -1,5 +1,7 @@
 "use strict"
 
+sinon = require("sinon")
+
 describe "Call order", ->
     spy1 = null
     spy2 = null

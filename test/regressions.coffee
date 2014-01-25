@@ -1,5 +1,7 @@
 "use strict"
 
+sinon = require("sinon")
+
 describe "Regressions", ->
     specify "GH-19: functions with `proxy` properties", ->
         func = ->

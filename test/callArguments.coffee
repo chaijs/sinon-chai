@@ -1,5 +1,7 @@
 "use strict"
 
+sinon = require("sinon")
+
 describe "Call arguments", ->
     spy = null
     arg1 = null

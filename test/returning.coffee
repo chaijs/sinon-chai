@@ -1,5 +1,7 @@
 "use strict"
 
+sinon = require("sinon")
+
 describe "Returning", ->
     describe "returned", ->
         it "should throw an assertion error if the spy does not return the correct value", ->
