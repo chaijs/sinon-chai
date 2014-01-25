@@ -9,19 +9,14 @@
     "stubs",
     "mocks"
   ],
-  "version": "2.4.0",
-  "author": "Domenic Denicola <domenic@domenicdenicola.com> (http://domenicdenicola.com)",
+  "version": "2.5.0",
+  "author": "Domenic Denicola <domenic@domenicdenicola.com> (http://domenic.me)",
   "license": "WTFPL",
   "repository": {
     "type": "git",
     "url": "git://github.com/domenic/sinon-chai.git"
   },
-  "bugs": {
-    "url": "http://github.com/domenic/sinon-chai/issues"
-  },
-  "directories": {
-    "lib": "./lib"
-  },
+  "bugs": "http://github.com/domenic/sinon-chai/issues",
   "main": "./lib/sinon-chai.js",
   "scripts": {
     "test": "mocha",
