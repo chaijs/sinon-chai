@@ -14,10 +14,16 @@ describe "Messages", ->
             expect(-> spy.should.have.been.calledThrice).to
                 .throw("expected spy to have been called exactly thrice, but it was called 0 times")
 
+            expect(-> spy.should.have.callCount(1)).to
+                .throw("expected spy to have been called exactly once, but it was called 0 times")
+            expect(-> spy.should.have.callCount(4)).to
+                .throw("expected spy to have been called exactly 4 times, but it was called 0 times")
+
         it "should be correct for the negated cases", ->
             calledOnce = sinon.spy()
             calledTwice = sinon.spy()
             calledThrice = sinon.spy()
+            calledFourTimes = sinon.spy()
 
             calledOnce()
             calledTwice()
@@ -25,6 +31,10 @@ describe "Messages", ->
             calledThrice()
             calledThrice()
             calledThrice()
+            calledFourTimes()
+            calledFourTimes()
+            calledFourTimes()
+            calledFourTimes()
 
             expect(-> calledOnce.should.not.have.been.called).to
                 .throw("expected spy to not have been called")
@@ -34,6 +44,11 @@ describe "Messages", ->
                 .throw("expected spy to not have been called exactly twice")
             expect(-> calledThrice.should.not.have.been.calledThrice).to
                 .throw("expected spy to not have been called exactly thrice")
+
+            expect(-> calledOnce.should.not.have.callCount(1)).to
+                .throw("expected spy to not have been called exactly once")
+            expect(-> calledFourTimes.should.not.have.callCount(4)).to
+                .throw("expected spy to not have been called exactly 4 times")
 
     describe "about call order", ->
         it "should be correct for the base cases", ->
