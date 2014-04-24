@@ -1,0 +1,19 @@
+{
+  "name": "sinon-chai",
+  "version": "2.5.1",
+  "homepage": "https://github.com/domenic/sinon-chai",
+  "authors": [
+    "Domenic Denicola <domenic@domenicdenicola.com> (http://domenic.me)"
+  ],
+  "description": "Extends Chai with assertions for the Sinon.JS mocking framework.",
+  "main": "./lib/sinon-chai.js",
+  "keywords": [
+    "sinon",
+    "chai",
+    "testing",
+    "spies",
+    "stubs",
+    "mocks"
+  ],
+  "license": "WTFPL"
+}
