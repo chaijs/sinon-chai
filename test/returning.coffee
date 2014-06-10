@@ -58,3 +58,25 @@ describe "Returning", ->
 
             expect(-> spy.should.always.have.returned(1)).to.throw(AssertionError)
             expect(-> spy.should.have.always.returned(1)).to.throw(AssertionError)
+
+        it "should allow you to inspect stub objects", ->
+            stub = sinon.stub()
+            stub.onFirstCall().returns('foo')
+            stub()
+            expect(-> stub.should.have.been.called).to.not.throw()
+
+            # chained syntax returns an object; let us inspect it
+            obj =
+              func: ->
+            stubObj = sinon.stub(obj, 'func').onFirstCall().returns('foo')
+            obj.func()
+            expect(-> stubObj.should.have.been.called).to.not.throw()
+
+            # see issue GH-19 (in regressions tests)
+            func = ->
+            func.stub = 5
+            obj =
+              func: func
+            stubObj = sinon.stub(obj, 'func').onFirstCall().returns('foo')
+            obj.func()
+            expect(-> stubObj.should.have.been.called).to.not.throw()
