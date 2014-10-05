@@ -10,13 +10,9 @@
     "mocks"
   ],
   "version": "2.5.0",
-  "author": "Domenic Denicola <domenic@domenicdenicola.com> (http://domenic.me)",
+  "author": "Domenic Denicola <domenic@domenicdenicola.com> (http://domenic.me/)",
   "license": "WTFPL",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/domenic/sinon-chai.git"
-  },
-  "bugs": "http://github.com/domenic/sinon-chai/issues",
+  "repository": "domenic/sinon-chai",
   "main": "./lib/sinon-chai.js",
   "scripts": {
     "test": "mocha",
