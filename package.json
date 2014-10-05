@@ -14,6 +14,10 @@
   "license": "WTFPL",
   "repository": "domenic/sinon-chai",
   "main": "./lib/sinon-chai.js",
+  "files": [
+    "LICENSE.txt",
+    "lib/*"
+  ],
   "scripts": {
     "test": "mocha",
     "lint": "jshint ./lib",
