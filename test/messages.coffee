@@ -286,3 +286,19 @@ describe "Messages", ->
 
         it "should be informative for methods", ->
             expect(-> notSpy.should.have.been.calledWith("foo")).to.throw(TypeError, /not a spy/)
+
+    it "should not trigger getters for passing assertions", ->
+        obj = {}
+        getterCalled = false
+        Object.defineProperty(obj, "getter", {
+            get: -> getterCalled = true
+            enumerable: true
+        })
+
+        spy = sinon.spy()
+
+        spy(obj)
+
+        spy.should.have.been.calledWith(obj)
+
+        expect(getterCalled).to.be.false

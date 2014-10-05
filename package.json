@@ -24,7 +24,7 @@
     "cover": "cover run node_modules/mocha/bin/_mocha && cover report html && opener ./cover_html/index.html"
   },
   "peerDependencies": {
-    "chai": ">=1.0.0 <2",
+    "chai": ">=1.9.2 <2",
     "sinon": ">=1.4.0 <2"
   },
   "devDependencies": {
