@@ -1,4 +1,5 @@
 # Sinon.JS Assertions for Chai
+[![Build Status](https://travis-ci.org/domenic/sinon-chai.svg?branch=master)](https://travis-ci.org/domenic/sinon-chai) [![devDependency Status](https://david-dm.org/domenic/sinon-chai/dev-status.svg)](https://david-dm.org/domenic/sinon-chai#info=devDependencies) [![peerDependency Status](https://david-dm.org/domenic/sinon-chai/peer-status.svg)](https://david-dm.org/domenic/sinon-chai#info=peerDependencies)
 
 **Sinon–Chai** provides a set of custom assertions for using the [Sinon.JS][] spy, stub, and mocking framework with the
 [Chai][] assertion library. You get all the benefits of Chai with all the powerful tools of Sinon.JS.
