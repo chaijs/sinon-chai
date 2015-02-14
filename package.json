@@ -10,13 +10,12 @@
     "mocks"
   ],
   "version": "2.6.0",
-  "author": "Domenic Denicola <domenic@domenicdenicola.com> (http://domenic.me/)",
+  "author": "Domenic Denicola <d@domenic.me> (https://domenic.me/)",
   "license": "WTFPL",
   "repository": "domenic/sinon-chai",
   "main": "./lib/sinon-chai.js",
   "files": [
-    "LICENSE.txt",
-    "lib/*"
+    "lib"
   ],
   "scripts": {
     "test": "mocha",
