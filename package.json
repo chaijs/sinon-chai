@@ -9,7 +9,7 @@
     "stubs",
     "mocks"
   ],
-  "version": "2.6.0",
+  "version": "2.7.0",
   "author": "Domenic Denicola <d@domenic.me> (https://domenic.me/)",
   "license": "WTFPL",
   "repository": "domenic/sinon-chai",
