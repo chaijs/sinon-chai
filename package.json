@@ -11,16 +11,7 @@
   ],
   "version": "2.7.0",
   "author": "Domenic Denicola <d@domenic.me> (https://domenic.me/)",
-  "licenses": [
-    {
-      "type": "BSD-2-Clause",
-      "url": "http://opensource.org/licenses/BSD-2-Clause"
-    },
-    {
-      "type": "WTFPL",
-      "url": "http://www.wtfpl.net/txt/copying/"
-    }
-  ],
+  "license": "(BSD-2-Clause OR WTFPL)",
   "repository": "domenic/sinon-chai",
   "main": "./lib/sinon-chai.js",
   "files": [
