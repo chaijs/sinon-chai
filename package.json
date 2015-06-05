@@ -18,7 +18,10 @@
     "lib"
   ],
   "scripts": {
-    "test": "mocha",
+    "test": "npm run test-chai-1-9-2 && npm run test-chai-2-3-0 && npm run test-chai-3-0-0",
+    "test-chai-1-9-2": "npm install chai@1.9.2 && mocha",
+    "test-chai-2-3-0": "npm install chai@2.3.0 && mocha",
+    "test-chai-3-0-0": "npm install chai@3.0.0 && mocha",
     "lint": "jshint ./lib",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha && opener ./coverage/lcov-report/lib/sinon-chai.js.html"
   },
