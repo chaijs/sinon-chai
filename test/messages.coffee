@@ -187,17 +187,14 @@ describe "Messages", ->
             spy(1, 2, 3)
             spy("a", "b", "c")
 
-            expected = "expected spy to always have been called with arguments 1, 2, 3\n    spy(1, 2, 3)\n" +
-                "    spy(a, b, c)"
+            expected = /expected spy to always have been called with arguments 1, 2, 3/
             expect(-> spy.should.always.have.been.calledWith(1, 2, 3)).to.throw(expected)
 
-            expectedExactly = "expected spy to always have been called with exact arguments 1, 2, 3\n" +
-                "    spy(1, 2, 3)\n    spy(a, b, c)"
+            expectedExactly = /expected spy to always have been called with exact arguments 1, 2, 3/
             expect(-> spy.should.always.have.been.calledWithExactly(1, 2, 3)).to
                 .throw(expectedExactly)
 
-            expectedMatch = "expected spy to always have been called with arguments matching match(1)\n" +
-                "    spy(1, 2, 3)\n    spy(a, b, c)"
+            expectedMatch = /expected spy to always have been called with arguments matching match\(1\)/
             expect(-> spy.should.always.have.been.calledWithMatch(sinon.match(1))).to
                 .throw(expectedMatch)
 
