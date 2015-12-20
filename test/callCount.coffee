@@ -9,6 +9,9 @@ describe "Call count", ->
         spy = sinon.spy()
 
     describe "called", ->
+        it "should throw an assertion error when the spy is undefined", ->
+            expect(-> expect(undefined).to.have.been.called).to.throw(TypeError)
+
         it "should throw an assertion error when the spy is not called", ->
             expect(-> spy.should.have.been.called).to.throw(AssertionError)
 
