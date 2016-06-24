@@ -203,7 +203,7 @@ var sinonChai = require("sinon-chai");
 chai.use(sinonChai);
 ```
 
-You can of course put this code in a common test fixture file; for an example using [Mocha][], see
+You can of course put this code in a common test fixture file; for an example using [Mocha](https://visionmedia.github.io/expresso/), see
 [the Sinon–Chai tests themselves][fixturedemo].
 
 ### AMD
