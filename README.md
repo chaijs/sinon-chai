@@ -241,7 +241,7 @@ Thanks to [Cymen Vig][], there's now [a Ruby gem][] of Sinon–Chai that integra
 [Chai]: http://chaijs.com/
 [spymethods]: http://sinonjs.org/docs/#spies-api
 [sinonassertions]: http://sinonjs.org/docs/#assertions
-[Mocha]: http://visionmedia.github.com/mocha/
+[Mocha]: https://mochajs.org/
 [fixturedemo]: https://github.com/domenic/sinon-chai/tree/master/test/
 [AMD]: https://github.com/amdjs/amdjs-api/wiki/AMD
 [Cymen Vig]: https://github.com/cymen
