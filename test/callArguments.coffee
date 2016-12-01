@@ -6,6 +6,8 @@ describe "Call arguments", ->
     spy = null
     arg1 = null
     arg2 = null
+    arg3 = null
+    arg4 = null
     notArg = null
     any = null
 
@@ -13,6 +15,8 @@ describe "Call arguments", ->
         spy = sinon.spy()
         arg1 = "A"
         arg2 = "B"
+        arg3 = {D: "E"}
+        arg4 = {D: {E: {E: "P"}}}
         notArg = "C"
         any = sinon.match.any
 
@@ -44,6 +48,20 @@ describe "Call arguments", ->
 
             expect(-> spy.should.have.been.calledWith(arg1, arg2)).to.not.throw()
             expect(-> spy.getCall(1).should.have.been.calledWith(arg1, arg2)).to.not.throw()
+
+        it "should handle objects in arguments", ->
+            spy(arg1, arg3)
+            _arg3 = JSON.parse(JSON.stringify(arg3))
+
+            expect(-> spy.should.have.been.calledWith(arg1, _arg3)).to.not.throw()
+            expect(-> spy.getCall(0).should.have.been.calledWith(arg1, _arg3)).to.not.throw()
+
+        it "should handle deep objects in arguments", ->
+            spy(arg1, arg4)
+            _arg4 = JSON.parse(JSON.stringify(arg4))
+
+            expect(-> spy.should.have.been.calledWith(arg1, _arg4)).to.not.throw()
+            expect(-> spy.getCall(0).should.have.been.calledWith(arg1, _arg4)).to.not.throw()
 
 
     describe "always calledWith", ->
