@@ -16,7 +16,7 @@ mySpy.calledWith("foo").should.be.ok;
 expect(mySpy.calledWith("foo")).to.be.ok;
 ```
 
-you can say
+you can say:
 
 ```javascript
 mySpy.should.have.been.calledWith("foo");
@@ -25,8 +25,7 @@ expect(mySpy).to.have.been.calledWith("foo");
 
 ## Assertions
 
-All of your favorite Sinon.JS assertions made their way into Sinon–Chai. We show the `should` syntax here; the `expect`
-equivalent is also available.
+All of your favorite Sinon.JS assertions made their way into Sinon–Chai. We show the `should` syntax here; the `expect` equivalent is also available.
 
 <table>
     <thead>
@@ -244,6 +243,57 @@ in to Chai and be ready for use. Note that you'll want to get the latest browser
 
 Thanks to [Cymen Vig][], there's now [a Ruby gem][] of Sinon–Chai that integrates it with the Rails asset pipeline!
 
+## Examples
+
+Using Chai's `should`:
+
+```javascript
+var chai = require('chai');
+var sinon = require('sinon');
+var sinonChai = require('sinon-chai');
+chai.should();
+chai.use(sinonChai);
+
+function hello(name, cb) {
+  return cb('hello ' + name);
+}
+
+describe('hello', function() {
+
+  it('should call callback with correct greeting', function() {
+    var cb = sinon.spy();
+ 
+    hello('foo', cb);
+
+    cb.should.have.been.calledWith('hello foo');
+  });
+});
+```
+
+Using Chai's `expect`:
+
+```javascript
+var chai = require('chai');
+var sinon = require('sinon');
+var sinonChai = require('sinon-chai');
+var expect = chai.expect;
+chai.use(sinonChai);
+
+function hello(name, cb) {
+  return cb('hello ' + name);
+}
+
+describe('hello', function() {
+
+  it('should call callback with correct greeting', function() {
+    var cb = sinon.spy();
+ 
+    hello('foo', cb);
+
+    expect(cb).to.have.been.calledWith('hello foo');
+  });
+});
+```
 
 [Sinon.JS]: http://sinonjs.org/
 [Chai]: http://chaijs.com/
