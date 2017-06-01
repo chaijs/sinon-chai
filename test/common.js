@@ -6,8 +6,8 @@ global.expect = require("chai").expect;
 global.AssertionError = require("chai").AssertionError;
 
 global.swallow = function (thrower) {
-    try {
-        thrower();
+  try {
+    thrower();
     } catch (e) {
       // Intentionally swallow
     }
