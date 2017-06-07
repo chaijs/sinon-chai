@@ -1,6 +1,7 @@
 ﻿"use strict"
 
 sinon = require("sinon")
+sinonIsVersion1 = require("sinon/package.json").version.charAt(0) == '1'
 
 describe "Messages", ->
     describe "about call count", ->
@@ -53,6 +54,9 @@ describe "Messages", ->
                 .throw("expected spy to not have been called exactly 4 times")
 
     describe "about call order", ->
+        beforeEach ->
+          this.skip() if sinonIsVersion1
+
         it "should be correct for the base cases", ->
             spyA = sinon.spy()
             spyB = sinon.spy()

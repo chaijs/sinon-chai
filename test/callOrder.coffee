@@ -1,6 +1,7 @@
 "use strict"
 
 sinon = require("sinon")
+sinonIsVersion1 = require("sinon/package.json").version.charAt(0) == '1'
 
 describe "Call order", ->
     spy1 = null
@@ -39,6 +40,9 @@ describe "Call order", ->
             expect(-> spy1.should.have.been.calledBefore(spy2)).to.throw(AssertionError)
 
     describe "spy1 calledImmediatelyBefore spy2", ->
+        beforeEach ->
+          this.skip() if sinonIsVersion1
+
         it "should throw an assertion error when neither spy is called", ->
             expect(-> spy1.should.have.been.calledImmediatelyBefore(spy2)).to.throw(AssertionError)
 
@@ -98,6 +102,9 @@ describe "Call order", ->
             expect(-> spy1.should.have.been.calledAfter(spy2)).to.not.throw()
 
     describe "spy1 calledImmediatelyAfter spy2", ->
+        beforeEach ->
+          this.skip() if sinonIsVersion1
+
         it "should throw an assertion error when neither spy is called", ->
             expect(-> spy1.should.have.been.calledImmediatelyAfter(spy2)).to.throw(AssertionError)
 
