@@ -53,6 +53,9 @@ describe "Messages", ->
                 .throw("expected spy to not have been called exactly 4 times")
 
     describe "about call order", ->
+        beforeEach ->
+          this.skip() if sinonIsVersion1
+
         it "should be correct for the base cases", ->
             spyA = sinon.spy()
             spyB = sinon.spy()

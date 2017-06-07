@@ -5,6 +5,8 @@ global.should = require("chai").should();
 global.expect = require("chai").expect;
 global.AssertionError = require("chai").AssertionError;
 
+global.sinonIsVersion1 = require("sinon/package.json").version.split('.')[0] == '1'
+
 global.swallow = function (thrower) {
     try {
         thrower();
