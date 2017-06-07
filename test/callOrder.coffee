@@ -1,7 +1,6 @@
 "use strict"
 
 sinon = require("sinon")
-sinonIsVersion1 = require("sinon/package.json").version.charAt(0) == '1'
 
 describe "Call order", ->
     spy1 = null
