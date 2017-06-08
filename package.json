@@ -28,11 +28,11 @@
     "cover": "istanbul cover node_modules/mocha/bin/_mocha && opener ./coverage/lcov-report/lib/sinon-chai.js.html"
   },
   "peerDependencies": {
-    "chai": ">=1.9.2 <4",
+    "chai": ">=1.9.2 <5",
     "sinon": "^1.4.0 || ^2.1.0"
   },
   "devDependencies": {
-    "chai": "^3.0.0",
+    "chai": "^4.0.0",
     "coffee-script": "~1.8.0",
     "istanbul": "~0.3.2",
     "jshint": "^2.5.6",
