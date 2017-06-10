@@ -62,13 +62,17 @@ describe "Messages", ->
 
             expect(-> spyA.should.have.been.calledBefore(spyB)).to
                 .throw("expected spyA to have been called before function spyB() {}")
-            expect(-> spyA.should.have.been.calledImmediatelyBefore(spyB)).to
-                .throw("expected spyA to have been called immediately before function spyB() {}")
+
+            if spyA.calledImmediatelyBefore
+                expect(-> spyA.should.have.been.calledImmediatelyBefore(spyB)).to
+                    .throw("expected spyA to have been called immediately before function spyB() {}")
 
             expect(-> spyB.should.have.been.calledAfter(spyA)).to
                 .throw("expected spyB to have been called after function spyA() {}")
-            expect(-> spyB.should.have.been.calledImmediatelyAfter(spyA)).to
-                .throw("expected spyB to have been called immediately after function spyA() {}")
+
+            if spyB.calledImmediatelyAfter
+                expect(-> spyB.should.have.been.calledImmediatelyAfter(spyA)).to
+                    .throw("expected spyB to have been called immediately after function spyA() {}")
 
         it "should be correct for the negated cases", ->
             spyA = sinon.spy()
@@ -82,13 +86,17 @@ describe "Messages", ->
 
             expect(-> spyA.should.not.have.been.calledBefore(spyB)).to
                 .throw("expected spyA to not have been called before function spyB() {}")
-            expect(-> spyA.should.not.have.been.calledImmediatelyBefore(spyB)).to
-                .throw("expected spyA to not have been called immediately before function spyB() {}")
+
+            if spyA.calledImmediatelyBefore
+                expect(-> spyA.should.not.have.been.calledImmediatelyBefore(spyB)).to
+                    .throw("expected spyA to not have been called immediately before function spyB() {}")
 
             expect(-> spyB.should.not.have.been.calledAfter(spyA)).to
                 .throw("expected spyB to not have been called after function spyA() {}")
-            expect(-> spyB.should.not.have.been.calledImmediatelyAfter(spyA)).to
-                .throw("expected spyB to not have been called immediately after function spyA() {}")
+
+            if spyB.calledImmediatelyAfter
+                expect(-> spyB.should.not.have.been.calledImmediatelyAfter(spyA)).to
+                    .throw("expected spyB to not have been called immediately after function spyA() {}")
 
     describe "about call context", ->
         it "should be correct for the basic case", ->
