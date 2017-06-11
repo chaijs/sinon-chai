@@ -32,7 +32,7 @@
     "sinon": "^1.4.0 || ^2.1.0"
   },
   "devDependencies": {
-    "chai": "^4.0.0",
+    "chai": "^4.0.2",
     "coffee-script": "~1.8.0",
     "istanbul": "~0.3.2",
     "jshint": "^2.5.6",
