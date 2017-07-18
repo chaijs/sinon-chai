@@ -13,7 +13,7 @@
     "stubs",
     "mocks"
   ],
-  "version": "2.11.0",
+  "version": "2.12.0",
   "author": "Domenic Denicola <d@domenic.me> (https://domenic.me/)",
   "license": "(BSD-2-Clause OR WTFPL)",
   "repository": "domenic/sinon-chai",
