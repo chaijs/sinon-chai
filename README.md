@@ -6,7 +6,7 @@
 Instead of using Sinon.JS's assertions:
 
 ```javascript
-sinon.assertCalledWith(mySpy, "foo");
+sinon.assert.calledWith(mySpy, "foo");
 ```
 
 or awkwardly trying to use Chai's `should` or `expect` interfaces on spy properties:
