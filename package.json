@@ -28,8 +28,8 @@
     "cover": "istanbul cover node_modules/mocha/bin/_mocha && opener ./coverage/lcov-report/lib/sinon-chai.js.html"
   },
   "peerDependencies": {
-    "chai": ">=1.9.2 <5",
-    "sinon": "^1.4.0 || ^2.1.0 || ^3.0.0 || ^4.0.0"
+    "chai": "^4.0.0",
+    "sinon": "^4.0.0"
   },
   "devDependencies": {
     "chai": "^4.1.0",
