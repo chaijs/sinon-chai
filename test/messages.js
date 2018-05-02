@@ -304,7 +304,7 @@ describe("Messages", function () {
 
     describe("about returning", function () {
         it("should be correct for the basic case", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 return 1;
             });
 
@@ -319,7 +319,7 @@ describe("Messages", function () {
         });
 
         it("should be correct for the negated case", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 return 1;
             });
 
@@ -334,7 +334,7 @@ describe("Messages", function () {
         });
 
         it("should be correct for the always case", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 return 1;
             });
 
@@ -349,7 +349,7 @@ describe("Messages", function () {
     describe("about throwing", function () {
         it("should be correct for the basic cases", function () {
             var spy = sinon.spy();
-            var throwingSpy = sinon.spy.create(function () {
+            var throwingSpy = sinon.spy(function () {
                 throw new Error();
             });
 
@@ -380,7 +380,7 @@ describe("Messages", function () {
 
         it("should be correct for the negated cases", function () {
             var error = new Error("boo!");
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 throw error;
             });
 
@@ -410,7 +410,7 @@ describe("Messages", function () {
 
         it("should be correct for the always cases", function () {
             var spy = sinon.spy();
-            var throwingSpy = sinon.spy.create(function () {
+            var throwingSpy = sinon.spy(function () {
                 throw new Error();
             });
 
