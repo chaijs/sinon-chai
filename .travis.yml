@@ -1,10 +1,13 @@
 language: node_js
 node_js:
   - 4
+  - 6
+  - 8
   - stable
 env:
   # This matrix used to be larger. In 3.0.0 we moved to only supporting these versions.
   # But, we'll retain the infrastructure for a larger matrix, in case we need it in the future.
+  - CHAI_VERSION=^4.0.0 SINON_VERSION=^5.0.0
   - CHAI_VERSION=^4.0.0 SINON_VERSION=^4.0.0
 script:
   - npm run lint
