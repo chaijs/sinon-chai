@@ -7,7 +7,7 @@ var expect = require("chai").expect;
 describe("Returning", function () {
     describe("returned", function () {
         it("should throw an assertion error if the spy does not return the correct value", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 return 1;
             });
 
@@ -22,7 +22,7 @@ describe("Returning", function () {
         });
 
         it("should not throw if the spy returns the correct value", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 return 1;
             });
 
@@ -38,7 +38,7 @@ describe("Returning", function () {
 
         it("should not throw if the spy returns the correct value amongst others", function () {
             var values = [1, 2, 3];
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 return values[spy.callCount - 1];
             });
 
@@ -57,7 +57,7 @@ describe("Returning", function () {
 
     describe("always returned", function () {
         it("should throw an assertion error if the spy does not return the correct value", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 return 1;
             });
 
@@ -72,7 +72,7 @@ describe("Returning", function () {
         });
 
         it("should not throw if the spy returns the correct value", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 return 1;
             });
 
@@ -88,7 +88,7 @@ describe("Returning", function () {
 
         it("should throw an assertion error if the spy returns the correct value amongst others", function () {
             var values = [1, 2, 3];
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 values[spy.callCount - 1];
             });
 

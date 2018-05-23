@@ -8,7 +8,7 @@ var swallow = require("./common").swallow;
 describe("Throwing", function () {
     describe("thrown()", function () {
         it("should throw an assertion error if the spy does not throw at all", function () {
-            var spy = sinon.spy.create(function () { /* Contents don't matter */ });
+            var spy = sinon.spy(function () { /* Contents don't matter */ });
 
             spy();
 
@@ -21,7 +21,7 @@ describe("Throwing", function () {
         });
 
         it("should not throw if the spy throws", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 throw new Error();
             });
 
@@ -36,7 +36,7 @@ describe("Throwing", function () {
         });
 
         it("should not throw if the spy throws once but not the next time", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 if (!(spy.callCount > 1)) {
                     throw new Error();
                 }
@@ -62,7 +62,7 @@ describe("Throwing", function () {
         });
 
         it("should throw an assertion error if the spy does not throw at all", function () {
-            var spy = sinon.spy.create(function () { /* Contents don't matter */ });
+            var spy = sinon.spy(function () { /* Contents don't matter */ });
 
             spy();
 
@@ -75,7 +75,7 @@ describe("Throwing", function () {
         });
 
         it("should throw an assertion error if the spy throws the wrong error", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 return new Error("eek!");
             });
 
@@ -90,7 +90,7 @@ describe("Throwing", function () {
         });
 
         it("should not throw if the spy throws", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 throw error;
             });
 
@@ -105,7 +105,7 @@ describe("Throwing", function () {
         });
 
         it("should not throw if the spy throws once but not the next time", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 if (!(spy.callCount > 1)) {
                     throw error;
                 }
@@ -131,7 +131,7 @@ describe("Throwing", function () {
         });
 
         it("should throw an assertion error if the spy does not throw at all", function () {
-            var spy = sinon.spy.create(function () { /* Contents don't matter */ });
+            var spy = sinon.spy(function () { /* Contents don't matter */ });
 
             spy();
 
@@ -144,7 +144,7 @@ describe("Throwing", function () {
         });
 
         it("should throw an assertion error if the spy throws the wrong type of error", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 throw new Error("boo!");
             });
 
@@ -159,7 +159,7 @@ describe("Throwing", function () {
         });
 
         it("should not throw if the spy throws the correct type of error", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 throw new TypeError("eek!");
             });
 
@@ -174,7 +174,7 @@ describe("Throwing", function () {
         });
 
         it("should not throw if the spy throws once but not the next time", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 if (!(spy.callCount > 1)) {
                     throw error;
                 }
@@ -200,7 +200,7 @@ describe("Throwing", function () {
         });
 
         it("should throw an assertion error if the spy throws once but not the next time", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 if (!(spy.callCount > 1)) {
                     throw error;
                 }
@@ -230,7 +230,7 @@ describe("Throwing", function () {
         });
 
         it("should throw an assertion error if the spy throws the wrong error the second time", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 if (spy.callCount === 1) {
                     throw error;
                 } else {
@@ -256,7 +256,7 @@ describe("Throwing", function () {
         });
 
         it("should not throw if the spy always throws the right error", function () {
-            var spy = sinon.spy.create(function () {
+            var spy = sinon.spy(function () {
                 throw error;
             });
 

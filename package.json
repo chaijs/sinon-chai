@@ -23,13 +23,13 @@
   ],
   "scripts": {
     "test": "mocha",
-    "test-travis": "npm install chai@$CHAI_VERSION && npm install sinon@$SINON_VERSION && npm install && npm test",
+    "test-travis": "npm install && npm install chai@$CHAI_VERSION && npm install sinon@$SINON_VERSION && npm test",
     "lint": "eslint .",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha && opener ./coverage/lcov-report/lib/sinon-chai.js.html"
   },
   "peerDependencies": {
     "chai": "^4.0.0",
-    "sinon": "^4.0.0"
+    "sinon": ">=4.0.0 <6.0.0"
   },
   "devDependencies": {
     "chai": "^4.1.0",
@@ -37,6 +37,6 @@
     "istanbul": "~0.4.5",
     "mocha": "^3.4.2",
     "opener": "^1.4.3",
-    "sinon": "^4.0.0"
+    "sinon": "^5.0.0"
   }
 }
