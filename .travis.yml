@@ -1,9 +1,6 @@
 language: node_js
 node_js:
-  - 6
-  - 8
-  - 9
-  - 10
+  - 4
   - stable
 env:
   - CHAI_VERSION=^4.0.0 SINON_VERSION=^5.0.0
