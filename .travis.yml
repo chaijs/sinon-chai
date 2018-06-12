@@ -3,6 +3,7 @@ node_js:
   - 4
   - stable
 env:
+  - CHAI_VERSION=^4.0.0 SINON_VERSION=^6.0.0
   - CHAI_VERSION=^4.0.0 SINON_VERSION=^5.0.0
   - CHAI_VERSION=^4.0.0 SINON_VERSION=^4.0.0
 script:
