@@ -127,7 +127,7 @@ describe("hello", function () {
 
 ### Node
 
-Do an `npm install sinon-chai` to get up and running. Then:
+Do an `npm install --save-dev sinon-chai` to get up and running. Then:
 
 ```javascript
 var chai = require("chai");
