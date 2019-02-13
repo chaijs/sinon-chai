@@ -472,6 +472,105 @@ describe("Messages", function () {
         });
     });
 
+    describe("diff support", function () {
+        it("should add actual/expected and set enableDiff to true", function () {
+            var spy = sinon.spy();
+            spy("foo1");
+
+            var err;
+
+            try {
+                expect(spy).to.have.been.calledWith("bar");
+            } catch (e) {
+                err = e;
+            }
+            expect(err).ok;
+            expect(err).to.ownProperty("showDiff", true);
+            expect(err).to.ownProperty("actual").deep.eq(["foo1"]);
+            expect(err).to.ownProperty("expected").deep.eq(["bar"]);
+        });
+
+        it("should use lastCall args if exists", function () {
+            var spy = sinon.spy();
+            spy("foo1");
+            spy("foo2");
+
+            var err;
+
+            try {
+                expect(spy).to.have.been.calledWith("bar");
+            } catch (e) {
+                err = e;
+            }
+            expect(err).ok;
+            expect(err).to.ownProperty("showDiff", true);
+            expect(err).to.ownProperty("actual").deep.eq(["foo2"]);
+            expect(err).to.ownProperty("expected").deep.eq(["bar"]);
+        });
+
+        it("should use args if no lastCall", function () {
+            var spy = sinon.spy();
+            spy("foo1");
+            spy("foo2");
+
+            var err;
+
+            try {
+                expect(spy.firstCall).to.have.been.calledWith("bar");
+            } catch (e) {
+                err = e;
+            }
+            expect(err).ok;
+            expect(err).to.ownProperty("showDiff", true);
+            expect(err).to.ownProperty("actual").deep.eq(["foo1"]);
+            expect(err).to.ownProperty("expected").deep.eq(["bar"]);
+        });
+
+        it("should use undefined if no call", function () {
+            var spy = sinon.spy();
+
+            var err;
+
+            try {
+                expect(spy).to.have.been.calledWith("bar");
+            } catch (e) {
+                err = e;
+            }
+            expect(err).ok;
+            expect(err).to.ownProperty("showDiff", true);
+            expect(err).to.ownProperty("actual").deep.eq(undefined);
+            expect(err).to.ownProperty("expected").deep.eq(["bar"]);
+        });
+
+        it("should not add actual/expected and set enableDiff to true if passes", function () {
+            var spy = sinon.spy();
+            spy("foo", "bar", "baz");
+
+            var err;
+
+            try {
+                spy.should.calledWithExactly("foo", "bar", "baz");
+            } catch (e) {
+                err = e;
+            }
+            expect(err).to.be.undefined;
+        });
+
+        it("should not add actual/expected and set enableDiff if not 'calledWith' matcher", function () {
+            var spy = sinon.spy();
+            spy("foo", "bar", "baz");
+
+            var err;
+
+            try {
+                expect(spy).to.have.been.calledTwice();
+            } catch (e) {
+                err = e;
+            }
+            expect(err).ownProperty("showDiff").eq(false);
+        });
+    });
+
     describe("when used on a non-spy/non-call", function () {
         function notSpy() {
             // Contents don't matter
