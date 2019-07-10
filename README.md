@@ -28,18 +28,20 @@ expect(mySpy).to.have.been.calledWith("foo");
 All of your favorite Sinon.JS assertions made their way into Sinon–Chai. We show the `should` syntax here; the `expect`
 equivalent is also available.
 
+Ensure the last command in the chain is always invoked, otherwise assertions like `spy.should.have.been.called` can return a false positive which passes the test even if it is wrong.
+
 | Sinon.JS property/method | Sinon–Chai assertion                                              |
 |--------------------------|-------------------------------------------------------------------|
-| called                   | spy.should.have.been.called                                       |
+| called                   | spy.should.have.been.called()                                       |
 | callCount                | spy.should.have.callCount(n)                                      |
-| calledOnce               | spy.should.have.been.calledOnce                                   |
-| calledTwice              | spy.should.have.been.calledTwice                                  |
-| calledThrice             | spy.should.have.been.calledThrice                                 |
+| calledOnce               | spy.should.have.been.calledOnce()                                   |
+| calledTwice              | spy.should.have.been.calledTwice()                                  |
+| calledThrice             | spy.should.have.been.calledThrice()                                 |
 | calledBefore             | spy1.should.have.been.calledBefore(spy2)                          |
 | calledAfter              | spy1.should.have.been.calledAfter(spy2)                           |
 | calledImmediatelyBefore  | spy.should.have.been.calledImmediatelyBefore(spy2)                |
 | calledImmediatelyAfter   | spy.should.have.been.calledImmediatelyAfter(spy2)                 |
-| calledWithNew            | spy.should.have.been.calledWithNew                                |
+| calledWithNew            | spy.should.have.been.calledWithNew()                                |
 | alwaysCalledWithNew      | spy.should.always.have.been.calledWithNew                         |
 | calledOn                 | spy.should.have.been.calledOn(context)                            |
 | alwaysCalledOn           | spy.should.always.have.been.calledOn(context)                     |
