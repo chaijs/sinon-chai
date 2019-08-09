@@ -490,6 +490,40 @@ describe("Messages", function () {
             expect(err).to.ownProperty("expected").deep.eq(["bar"]);
         });
 
+        it("should add diff when calledOnceWith matcher", function () {
+            var spy = sinon.spy();
+            spy("foo1");
+
+            var err;
+
+            try {
+                expect(spy).to.have.been.calledOnceWith("bar");
+            } catch (e) {
+                err = e;
+            }
+            expect(err).ok;
+            expect(err).to.ownProperty("showDiff", true);
+            expect(err).to.ownProperty("actual").deep.eq(["foo1"]);
+            expect(err).to.ownProperty("expected").deep.eq(["bar"]);
+        });
+
+        it("should add diff when calledOnceWithExactly matcher", function () {
+            var spy = sinon.spy();
+            spy("foo1");
+
+            var err;
+
+            try {
+                expect(spy).to.have.been.calledOnceWithExactly("bar");
+            } catch (e) {
+                err = e;
+            }
+            expect(err).ok;
+            expect(err).to.ownProperty("showDiff", true);
+            expect(err).to.ownProperty("actual").deep.eq(["foo1"]);
+            expect(err).to.ownProperty("expected").deep.eq(["bar"]);
+        });
+
         it("should use lastCall args if exists", function () {
             var spy = sinon.spy();
             spy("foo1");
