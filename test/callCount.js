@@ -77,15 +77,15 @@ describe("Call count", function () {
         });
 
         it("should throw an assertion error whenever the number of calls are not equal to provided call count",
-        function () {
-            spy();
-            spy();
-            spy();
+            function () {
+                spy();
+                spy();
+                spy();
 
-            expect(function () {
-                spy.should.have.callCount(4);
-            }).to.throw(AssertionError);
-        });
+                expect(function () {
+                    spy.should.have.callCount(4);
+                }).to.throw(AssertionError);
+            });
     });
 
     describe("calledOnce", function () {

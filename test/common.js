@@ -9,6 +9,6 @@ exports.swallow = function (thrower) {
     try {
         thrower();
     } catch (e) {
-      // Intentionally swallow
+        // Intentionally swallow
     }
 };
