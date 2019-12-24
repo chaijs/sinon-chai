@@ -16,7 +16,7 @@
   "version": "3.4.0",
   "author": "Domenic Denicola <d@domenic.me> (https://domenic.me/)",
   "contributors": [
-    "Simon de Lang <simondelang@gmail.com>",
+    "Simon de Lang <simondelang@gmail.com>"
   ],
   "license": "(BSD-2-Clause OR WTFPL)",
   "repository": "domenic/sinon-chai",
