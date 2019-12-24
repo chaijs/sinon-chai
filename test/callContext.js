@@ -124,19 +124,19 @@ describe("Call context", function () {
         });
 
         it("should throw an assertion error if the spy is called on another context and also the specified context",
-        function () {
-            spy.call(notTheTarget);
-            spy.call(target);
+            function () {
+                spy.call(notTheTarget);
+                spy.call(target);
 
-            expect(function () {
-                spy.should.always.have.been.calledOn(target);
-            }).to.throw(AssertionError);
-            expect(function () {
-                spy.should.have.always.been.calledOn(target);
-            }).to.throw(AssertionError);
-            expect(function () {
-                spy.should.have.been.always.calledOn(target);
-            }).to.throw(AssertionError);
-        });
+                expect(function () {
+                    spy.should.always.have.been.calledOn(target);
+                }).to.throw(AssertionError);
+                expect(function () {
+                    spy.should.have.always.been.calledOn(target);
+                }).to.throw(AssertionError);
+                expect(function () {
+                    spy.should.have.been.always.calledOn(target);
+                }).to.throw(AssertionError);
+            });
     });
 });

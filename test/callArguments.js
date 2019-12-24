@@ -156,20 +156,20 @@ describe("Call arguments", function () {
         });
 
         it("should throw an assertion error when the spy is called with incorrect arguments but then correct ones",
-        function () {
-            spy(notArg, arg1);
-            spy(arg1, arg2);
+            function () {
+                spy(notArg, arg1);
+                spy(arg1, arg2);
 
-            expect(function () {
-                spy.should.always.have.been.calledWith(arg1, arg2);
-            }).to.throw(AssertionError);
-            expect(function () {
-                spy.should.have.always.been.calledWith(arg1, arg2);
-            }).to.throw(AssertionError);
-            expect(function () {
-                spy.should.have.been.always.calledWith(arg1, arg2);
-            }).to.throw(AssertionError);
-        });
+                expect(function () {
+                    spy.should.always.have.been.calledWith(arg1, arg2);
+                }).to.throw(AssertionError);
+                expect(function () {
+                    spy.should.have.always.been.calledWith(arg1, arg2);
+                }).to.throw(AssertionError);
+                expect(function () {
+                    spy.should.have.been.always.calledWith(arg1, arg2);
+                }).to.throw(AssertionError);
+            });
     });
 
     describe("calledOnceWith", function () {
@@ -412,20 +412,20 @@ describe("Call arguments", function () {
         });
 
         it("should throw an assertion error when the spy is called with incorrect arguments but then correct ones",
-        function () {
-            spy(notArg, arg1);
-            spy(arg1, arg2);
+            function () {
+                spy(notArg, arg1);
+                spy(arg1, arg2);
 
-            expect(function () {
-                spy.should.always.have.been.calledWithExactly(arg1, arg2);
-            }).to.throw(AssertionError);
-            expect(function () {
-                spy.should.have.always.been.calledWithExactly(arg1, arg2);
-            }).to.throw(AssertionError);
-            expect(function () {
-                spy.should.have.been.always.calledWithExactly(arg1, arg2);
-            }).to.throw(AssertionError);
-        });
+                expect(function () {
+                    spy.should.always.have.been.calledWithExactly(arg1, arg2);
+                }).to.throw(AssertionError);
+                expect(function () {
+                    spy.should.have.always.been.calledWithExactly(arg1, arg2);
+                }).to.throw(AssertionError);
+                expect(function () {
+                    spy.should.have.been.always.calledWithExactly(arg1, arg2);
+                }).to.throw(AssertionError);
+            });
     });
 
     describe("calledOnceWithExactly", function () {
@@ -453,13 +453,13 @@ describe("Call arguments", function () {
         });
 
         it("should throw an assertion error when the spy is called once with the correct arguments and more",
-        function () {
-            spy(arg1, arg2, notArg);
+            function () {
+                spy(arg1, arg2, notArg);
 
-            expect(function () {
-                spy.should.have.been.calledOnceWithExactly(arg1, arg2);
-            }).to.throw(AssertionError);
-        });
+                expect(function () {
+                    spy.should.have.been.calledOnceWithExactly(arg1, arg2);
+                }).to.throw(AssertionError);
+            });
 
         it("should throw an assertion error when the spy is called once with incorrect arguments", function () {
             spy(notArg, arg1);
@@ -513,19 +513,19 @@ describe("Call arguments", function () {
         });
 
         it("should throw an assertion error when the spy is called once with the correct arguments and more",
-        function () {
-            spy(arg1, arg2, notArg);
+            function () {
+                spy(arg1, arg2, notArg);
 
-            expect(function () {
-                spy.should.always.have.been.calledOnceWithExactly(arg1, arg2);
-            }).to.throw(AssertionError);
-            expect(function () {
-                spy.should.have.always.been.calledOnceWithExactly(arg1, arg2);
-            }).to.throw(AssertionError);
-            expect(function () {
-                spy.should.have.been.always.calledOnceWithExactly(arg1, arg2);
-            }).to.throw(AssertionError);
-        });
+                expect(function () {
+                    spy.should.always.have.been.calledOnceWithExactly(arg1, arg2);
+                }).to.throw(AssertionError);
+                expect(function () {
+                    spy.should.have.always.been.calledOnceWithExactly(arg1, arg2);
+                }).to.throw(AssertionError);
+                expect(function () {
+                    spy.should.have.been.always.calledOnceWithExactly(arg1, arg2);
+                }).to.throw(AssertionError);
+            });
 
         it("should throw an assertion error when the spy is called once with incorrect arguments", function () {
             spy(notArg, arg1);
@@ -651,19 +651,19 @@ describe("Call arguments", function () {
         });
 
         it("should throw an assertion error when the spy is called with incorrect arguments but then correct ones",
-        function () {
-            spy(notArg, arg1);
-            spy(arg1, arg2);
+            function () {
+                spy(notArg, arg1);
+                spy(arg1, arg2);
 
-            expect(function () {
-                spy.should.always.have.been.calledWithMatch(arg1, arg2);
-            }).to.throw(AssertionError);
-            expect(function () {
-                spy.should.have.always.been.calledWithMatch(arg1, arg2);
-            }).to.throw(AssertionError);
-            expect(function () {
-                spy.should.have.been.always.calledWithMatch(arg1, arg2);
-            }).to.throw(AssertionError);
-        });
+                expect(function () {
+                    spy.should.always.have.been.calledWithMatch(arg1, arg2);
+                }).to.throw(AssertionError);
+                expect(function () {
+                    spy.should.have.always.been.calledWithMatch(arg1, arg2);
+                }).to.throw(AssertionError);
+                expect(function () {
+                    spy.should.have.been.always.calledWithMatch(arg1, arg2);
+                }).to.throw(AssertionError);
+            });
     });
 });
