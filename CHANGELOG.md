@@ -1,6 +1,6 @@
 # Change log
 
-## 3.4.0
+## 3.5.0
 
 ### Features
 * Add support for sinon 9 ([#147](https://github.com/domenic/sinon-chai/issues/147))
