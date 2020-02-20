@@ -13,7 +13,7 @@
     "stubs",
     "mocks"
   ],
-  "version": "3.4.0",
+  "version": "3.5.0",
   "author": "Domenic Denicola <d@domenic.me> (https://domenic.me/)",
   "contributors": [
     "Simon de Lang <simondelang@gmail.com>"
