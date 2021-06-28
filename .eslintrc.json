@@ -6,7 +6,11 @@
     "es6": false
   },
   "parserOptions": {
-    "ecmaVersion": 5
+    "ecmaVersion": 2015,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
   },
   "rules": {
     // Possible errors
