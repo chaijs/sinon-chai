@@ -21,6 +21,7 @@
   "license": "(BSD-2-Clause OR WTFPL)",
   "repository": "domenic/sinon-chai",
   "main": "./lib/sinon-chai.js",
+  "module": "./lib/sinon-chai.mjs",
   "files": [
     "lib"
   ],
@@ -43,5 +44,9 @@
     "opener": "^1.5.1",
     "rollup": "^2.52.3",
     "sinon": "^9.0.0"
+  },
+  "exports": {
+    "import": "./lib/sinon-chai.mjs",
+    "require": "./lib/sinon-chai.js"
   }
 }
