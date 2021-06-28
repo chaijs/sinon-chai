@@ -28,7 +28,8 @@
     "test": "mocha",
     "test-travis": "npm install && npm install chai@$CHAI_VERSION && npm install sinon@$SINON_VERSION && npm test",
     "lint": "eslint .",
-    "cover": "nyc --reporter=html mocha && opener ./coverage/sinon-chai.js.html"
+    "cover": "nyc --reporter=html mocha && opener ./coverage/sinon-chai.js.html",
+    "prepublishOnly": "rollup -c"
   },
   "peerDependencies": {
     "chai": "^4.0.0",
