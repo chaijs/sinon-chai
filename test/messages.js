@@ -3,6 +3,18 @@
 var sinon = require("sinon");
 var expect = require("chai").expect;
 var swallow = require("./common").swallow;
+var stripAnsi = require("strip-ansi");
+
+function stripMessageColors(func) {
+    return function () {
+        try {
+            func();
+        } catch (error) {
+            error.message = stripAnsi(error.message);
+            throw error;
+        }
+    };
+}
 
 describe("Messages", function () {
     describe("about call count", function () {
@@ -239,31 +251,31 @@ describe("Messages", function () {
 
             spy(1, 2, 3);
 
-            expect(function () {
+            expect(stripMessageColors(function () {
                 spy.should.have.been.calledWith("a", "b", "c");
-            }).to.throw("expected spy to have been called with arguments a, b, c");
-            expect(function () {
+            })).to.throw("expected spy to have been called with arguments \n1 a \n2 b \n3 c");
+            expect(stripMessageColors(function () {
                 spy.should.have.been.calledWithExactly("a", "b", "c");
-            }).to.throw("expected spy to have been called with exact arguments a, b, c");
-            expect(function () {
+            })).to.throw("expected spy to have been called with exact arguments \n1 a \n2 b \n3 c");
+            expect(stripMessageColors(function () {
                 spy.should.have.been.calledWithMatch(sinon.match("foo"));
-            }).to.throw("expected spy to have been called with arguments matching match(\"foo\")");
-            expect(function () {
+            })).to.throw("expected spy to have been called with arguments matching \n1 match(\"foo\")");
+            expect(stripMessageColors(function () {
                 spy.should.have.been.calledOnceWith("a", "b", "c");
-            }).to.throw("expected spy to have been called exactly once with arguments a, b, c");
-            expect(function () {
+            })).to.throw("expected spy to have been called exactly once with arguments \n1 a \n2 b \n3 c");
+            expect(stripMessageColors(function () {
                 spy.should.have.been.calledOnceWithExactly("a", "b", "c");
-            }).to.throw("expected spy to have been called exactly once with exact arguments a, b, c");
+            })).to.throw("expected spy to have been called exactly once with exact arguments \n1 a \n2 b \n3 c");
 
-            expect(function () {
+            expect(stripMessageColors(function () {
                 spy.getCall(0).should.have.been.calledWith("a", "b", "c");
-            }).to.throw("expected spy to have been called with arguments a, b, c");
-            expect(function () {
+            })).to.throw("expected spy to have been called with arguments \n1 a \n2 b \n3 c");
+            expect(stripMessageColors(function () {
                 spy.getCall(0).should.have.been.calledWithExactly("a", "b", "c");
-            }).to.throw("expected spy to have been called with exact arguments a, b, c");
-            expect(function () {
+            })).to.throw("expected spy to have been called with exact arguments \n1 a \n2 b \n3 c");
+            expect(stripMessageColors(function () {
                 spy.getCall(0).should.have.been.calledWithMatch(sinon.match("foo"));
-            }).to.throw("expected spy to have been called with arguments matching match(\"foo\")");
+            })).to.throw("expected spy to have been called with arguments matching \n1 match(\"foo\")");
         });
 
         it("should be correct for the negated cases", function () {
@@ -304,42 +316,72 @@ describe("Messages", function () {
             spy(1, 2, 3);
             spy("a", "b", "c");
 
-            var expected = /expected spy to always have been called with arguments 1, 2, 3/;
-            expect(function () {
+            var expected = new RegExp(
+                "expected spy to always have been called with arguments.*" +
+                "Call 2:\\na 1 \\nb 2 \\nc 3",
+                "s"
+            );
+            expect(stripMessageColors(function () {
                 spy.should.always.have.been.calledWith(1, 2, 3);
-            }).to.throw(expected);
+            })).to.throw(expected);
 
-            var expectedExactly = /expected spy to always have been called with exact arguments 1, 2, 3/;
-            expect(function () {
+            var expectedExactly = new RegExp(
+                "expected spy to always have been called with exact arguments.*" +
+                "Call 2:\\na 1 \\nb 2 \\nc 3",
+                "s"
+            );
+            expect(stripMessageColors(function () {
                 spy.should.always.have.been.calledWithExactly(1, 2, 3);
-            }).to.throw(expectedExactly);
+            })).to.throw(expectedExactly);
 
-            var expectedMatch = /expected spy to always have been called with arguments matching match\(1\)/;
-            expect(function () {
+            var expectedMatch = new RegExp(
+                "expected spy to always have been called with arguments matching.*" +
+                "Call 2:\\na match\\(1\\)",
+                "s"
+            );
+            expect(stripMessageColors(function () {
                 spy.should.always.have.been.calledWithMatch(sinon.match(1));
-            }).to.throw(expectedMatch);
+            })).to.throw(expectedMatch);
 
-            var expectedOnce = /expected spy to have been called exactly once with arguments 1, 2, 3/;
-            expect(function () {
+            var expectedOnce = new RegExp(
+                "expected spy to have been called exactly once with arguments.*" +
+                "Call 2:\\na 1 \\nb 2 \\nc 3",
+                "s"
+            );
+            expect(stripMessageColors(function () {
                 spy.should.always.have.been.calledOnceWith(1, 2, 3);
-            }).to.throw(expectedOnce);
+            })).to.throw(expectedOnce);
 
-            var expectedExactlyOnce = /expected spy to have been called exactly once with exact arguments 1, 2, 3/;
-            expect(function () {
+            var expectedExactlyOnce = new RegExp(
+                "expected spy to have been called exactly once with exact arguments.*" +
+                "Call 2:\\na 1 \\nb 2 \\nc 3 ",
+                "s"
+            );
+            expect(stripMessageColors(function () {
                 spy.should.always.have.been.calledOnceWithExactly(1, 2, 3);
-            }).to.throw(expectedExactlyOnce);
+            })).to.throw(expectedExactlyOnce);
 
             spy.resetHistory();
             spy(1, 2, 3);
             spy(1, 2, 3);
 
-            expect(function () {
+            var expectedOnceButTwice = new RegExp(
+                "expected spy to have been called exactly once with arguments.*" +
+                "Call 2:\\n1\\n2\\n3",
+                "s"
+            );
+            expect(stripMessageColors(function () {
                 spy.should.always.have.been.calledOnceWith(1, 2, 3);
-            }).to.throw(expectedOnce);
+            })).to.throw(expectedOnceButTwice);
 
-            expect(function () {
+            var expectedExactlyOnceButTwice = new RegExp(
+                "expected spy to have been called exactly once with exact arguments.*" +
+                "Call 2:\\n1\\n2\\n3",
+                "s"
+            );
+            expect(stripMessageColors(function () {
                 spy.should.always.have.been.calledOnceWithExactly(1, 2, 3);
-            }).to.throw(expectedExactlyOnce);
+            })).to.throw(expectedExactlyOnceButTwice);
         });
     });
 
