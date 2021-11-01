@@ -23,30 +23,30 @@ describe("Messages", function () {
 
             expect(function () {
                 spy.should.have.been.called;
-            }).to.throw("expected spy to have been called at least once, but it was never called");
+            }).to.throw(/expected spy to have been called at least '?once'?, but it was never called/);
             expect(function () {
                 spy.should.have.been.calledOnce;
-            }).to.throw("expected spy to have been called exactly once, but it was called 0 times");
+            }).to.throw(/expected spy to have been called exactly '?once'?, but it was called 0 times/);
             expect(function () {
                 spy.should.have.been.calledTwice;
-            }).to.throw("expected spy to have been called exactly twice, but it was called 0 times");
+            }).to.throw(/expected spy to have been called exactly '?twice'?, but it was called 0 times/);
             expect(function () {
                 spy.should.have.been.calledThrice;
-            }).to.throw("expected spy to have been called exactly thrice, but it was called 0 times");
+            }).to.throw(/expected spy to have been called exactly '?thrice'?, but it was called 0 times/);
 
             expect(function () {
                 spy.should.have.callCount(1);
-            }).to.throw("expected spy to have been called exactly once, but it was called 0 times");
+            }).to.throw(/expected spy to have been called exactly '?once'?, but it was called 0 times/);
             expect(function () {
                 spy.should.have.callCount(4);
-            }).to.throw("expected spy to have been called exactly 4 times, but it was called 0 times");
+            }).to.throw(/expected spy to have been called exactly '?4 times'?, but it was called 0 times/);
 
             expect(function () {
                 spy.should.have.been.calledOnceWith();
-            }).to.throw("expected spy to have been called exactly once with arguments");
+            }).to.throw(/expected spy to have been called exactly '?once'? with arguments/);
             expect(function () {
                 spy.should.have.been.calledOnceWithExactly();
-            }).to.throw("expected spy to have been called exactly once with exact arguments");
+            }).to.throw(/expected spy to have been called exactly '?once'? with exact arguments/);
         });
 
         it("should be correct for the negated cases", function () {
@@ -72,23 +72,23 @@ describe("Messages", function () {
 
             expect(function () {
                 calledOnce.should.not.have.been.calledOnce;
-            }).to.throw("expected spy to not have been called exactly once");
+            }).to.throw(/expected spy to not have been called exactly '?once'?/);
 
             expect(function () {
                 calledTwice.should.not.have.been.calledTwice;
-            }).to.throw("expected spy to not have been called exactly twice");
+            }).to.throw(/expected spy to not have been called exactly '?twice'?/);
 
             expect(function () {
                 calledThrice.should.not.have.been.calledThrice;
-            }).to.throw("expected spy to not have been called exactly thrice");
+            }).to.throw(/expected spy to not have been called exactly '?thrice'?/);
 
             expect(function () {
                 calledOnce.should.not.have.callCount(1);
-            }).to.throw("expected spy to not have been called exactly once");
+            }).to.throw(/expected spy to not have been called exactly '?once'?/);
 
             expect(function () {
                 calledFourTimes.should.not.have.callCount(4);
-            }).to.throw("expected spy to not have been called exactly 4 times");
+            }).to.throw(/expected spy to not have been called exactly '?4 times'?/);
         });
     });
 
@@ -262,10 +262,10 @@ describe("Messages", function () {
             })).to.throw("expected spy to have been called with arguments matching \n1 match(\"foo\")");
             expect(stripMessageColors(function () {
                 spy.should.have.been.calledOnceWith("a", "b", "c");
-            })).to.throw("expected spy to have been called exactly once with arguments \n1 a \n2 b \n3 c");
+            })).to.throw(/expected spy to have been called exactly '?once'? with arguments \n1 a \n2 b \n3 c/);
             expect(stripMessageColors(function () {
                 spy.should.have.been.calledOnceWithExactly("a", "b", "c");
-            })).to.throw("expected spy to have been called exactly once with exact arguments \n1 a \n2 b \n3 c");
+            })).to.throw(/expected spy to have been called exactly '?once'? with exact arguments \n1 a \n2 b \n3 c/);
 
             expect(stripMessageColors(function () {
                 spy.getCall(0).should.have.been.calledWith("a", "b", "c");
@@ -294,10 +294,10 @@ describe("Messages", function () {
             }).to.throw("expected spy to not have been called with arguments matching match(1)");
             expect(function () {
                 spy.should.not.have.been.calledOnceWith(1, 2, 3);
-            }).to.throw("expected spy to not have been called exactly once with arguments 1, 2, 3");
+            }).to.throw(/expected spy to not have been called exactly '?once'? with arguments 1, 2, 3/);
             expect(function () {
                 spy.should.not.have.been.calledOnceWithExactly(1, 2, 3);
-            }).to.throw("expected spy to not have been called exactly once with exact arguments 1, 2, 3");
+            }).to.throw(/expected spy to not have been called exactly '?once'? with exact arguments 1, 2, 3/);
 
             expect(function () {
                 spy.getCall(0).should.not.have.been.calledWith(1, 2, 3);
@@ -344,7 +344,7 @@ describe("Messages", function () {
             })).to.throw(expectedMatch);
 
             var expectedOnce = new RegExp(
-                "expected spy to have been called exactly once with arguments.*" +
+                "expected spy to have been called exactly '?once'? with arguments.*" +
                 "Call 2:\\na 1 \\nb 2 \\nc 3",
                 "s"
             );
@@ -353,7 +353,7 @@ describe("Messages", function () {
             })).to.throw(expectedOnce);
 
             var expectedExactlyOnce = new RegExp(
-                "expected spy to have been called exactly once with exact arguments.*" +
+                "expected spy to have been called exactly '?once'? with exact arguments.*" +
                 "Call 2:\\na 1 \\nb 2 \\nc 3 ",
                 "s"
             );
@@ -366,7 +366,7 @@ describe("Messages", function () {
             spy(1, 2, 3);
 
             var expectedOnceButTwice = new RegExp(
-                "expected spy to have been called exactly once with arguments.*" +
+                "expected spy to have been called exactly '?once'? with arguments.*" +
                 "Call 2:\\n1\\n2\\n3",
                 "s"
             );
@@ -375,7 +375,7 @@ describe("Messages", function () {
             })).to.throw(expectedOnceButTwice);
 
             var expectedExactlyOnceButTwice = new RegExp(
-                "expected spy to have been called exactly once with exact arguments.*" +
+                "expected spy to have been called exactly '?once'? with exact arguments.*" +
                 "Call 2:\\n1\\n2\\n3",
                 "s"
             );
@@ -448,17 +448,17 @@ describe("Messages", function () {
 
             expect(function () {
                 throwingSpy.should.have.thrown("TypeError");
-            }).to.throw("expected spy to have thrown TypeError");
+            }).to.throw(/expected spy to have thrown '?TypeError'?/);
             expect(function () {
                 throwingSpy.getCall(0).should.have.thrown("TypeError");
-            }).to.throw("expected spy to have thrown TypeError");
+            }).to.throw(/expected spy to have thrown '?TypeError'?/);
 
             expect(function () {
                 throwingSpy.should.have.thrown({ message: "x" });
-            }).to.throw('expected spy to have thrown { message: "x" }');
+            }).to.throw(/expected spy to have thrown { message: ['"]x['"] }/);
             expect(function () {
                 throwingSpy.getCall(0).should.have.thrown({ message: "x" });
-            }).to.throw('expected spy to have thrown { message: "x" }');
+            }).to.throw(/expected spy to have thrown { message: ['"]x['"] }/);
         });
 
         it("should be correct for the negated cases", function () {
@@ -478,17 +478,17 @@ describe("Messages", function () {
 
             expect(function () {
                 spy.should.not.have.thrown("Error");
-            }).to.throw("expected spy to not have thrown Error");
+            }).to.throw(/expected spy to not have thrown '?Error'?/);
             expect(function () {
                 spy.getCall(0).should.not.have.thrown("Error");
-            }).to.throw("expected spy to not have thrown Error");
+            }).to.throw(/expected spy to not have thrown '?Error'?/);
 
             expect(function () {
                 spy.should.not.have.thrown(error);
-            }).to.throw("expected spy to not have thrown Error: boo!");
+            }).to.throw(/expected spy to not have thrown '?Error: boo!'?/);
             expect(function () {
                 spy.getCall(0).should.not.have.thrown(error);
-            }).to.throw("expected spy to not have thrown Error: boo!");
+            }).to.throw(/expected spy to not have thrown '?Error: boo!'?/);
         });
 
         it("should be correct for the always cases", function () {
@@ -506,11 +506,11 @@ describe("Messages", function () {
 
             expect(function () {
                 throwingSpy.should.have.always.thrown("TypeError");
-            }).to.throw("expected spy to always have thrown TypeError");
+            }).to.throw(/expected spy to always have thrown '?TypeError'?/);
 
             expect(function () {
                 throwingSpy.should.have.always.thrown({ message: "x" });
-            }).to.throw('expected spy to always have thrown { message: "x" }');
+            }).to.throw(/expected spy to always have thrown { message: ['"]x['"] }/);
         });
     });
 
