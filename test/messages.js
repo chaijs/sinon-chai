@@ -161,8 +161,10 @@ describe("Messages", function () {
 
             spy.call(badContext);
 
-            var expected = "expected spy to have been called with {  } as this, but it was called with " +
-                           spy.printf("%t") + " instead";
+            var expected = new RegExp(
+                "expected spy to have been called with \\{\\s*\\} as this, but it was called with " +
+                spy.printf("%t") + " instead"
+            );
             expect(function () {
                 spy.should.have.been.calledOn(context);
             }).to.throw(expected);
@@ -177,7 +179,7 @@ describe("Messages", function () {
 
             spy.call(context);
 
-            var expected = "expected spy to not have been called with {  } as this";
+            var expected = /expected spy to not have been called with \{\s*\} as this/;
             expect(function () {
                 spy.should.not.have.been.calledOn(context);
             }).to.throw(expected);
@@ -193,8 +195,10 @@ describe("Messages", function () {
 
             spy.call(badContext);
 
-            var expected = "expected spy to always have been called with {  } as this, but it was called with " +
-                           spy.printf("%t") + " instead";
+            var expected = new RegExp(
+                "expected spy to always have been called with \\{\\s*\\} as this, but it was called with " +
+                spy.printf("%t") + " instead"
+            );
             expect(function () {
                 spy.should.always.have.been.calledOn(context);
             }).to.throw(expected);
