@@ -60,7 +60,7 @@ For more information on the behavior of each assertion, see
 [the documentation for the corresponding spy methods][spymethods]. These of course work on not only spies, but
 individual spy calls, stubs, and mocks as well.
 
-Note that you can negate any assertion with Chai's `.not`. E. g. for `notCalled` use `spy.should.have.not.been.called`.
+Note that you can negate any assertion with Chai's `.not`. E. g. for `notCalled` use `spy.should.have.not.been.called`. Similarly, note that the `always` methods are accessed with Chai's `.always` prefix; `should.have.been.alwaysCalledWith` will not work - instead, use `should.always.have.been.calledWith`.
 
 For `assert` interface there is no need for this library. You can install [Sinon.JS assertions][sinonassertions] right into Chai's `assert` object with `expose`:
 
