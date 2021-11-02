@@ -102,6 +102,12 @@ describe("Messages", function () {
     });
 
     describe("about call order", function () {
+        function calledRegex(func, criteria, otherFunc) {
+            return new RegExp(
+                "expected " + func.displayName + " to " + criteria +
+                " (function " + otherFunc.displayName + "\\(\\) \\{\\}|\\[Function\\])"
+            );
+        }
         it("should be correct for the base cases", function () {
             var spyA = sinon.spy();
             var spyB = sinon.spy();
@@ -111,22 +117,22 @@ describe("Messages", function () {
 
             expect(function () {
                 spyA.should.have.been.calledBefore(spyB);
-            }).to.throw("expected spyA to have been called before function spyB() {}");
+            }).to.throw(calledRegex(spyA, "have been called before", spyB));
 
             if (spyA.calledImmediatelyBefore) {
                 expect(function () {
                     spyA.should.have.been.calledImmediatelyBefore(spyB);
-                }).to.throw("expected spyA to have been called immediately before function spyB() {}");
+                }).to.throw(calledRegex(spyA, "have been called immediately before", spyB));
             }
 
             expect(function () {
                 spyB.should.have.been.calledAfter(spyA);
-            }).to.throw("expected spyB to have been called after function spyA() {}");
+            }).to.throw(calledRegex(spyB, "have been called after", spyA));
 
             if (spyB.calledImmediatelyAfter) {
                 expect(function () {
                     spyB.should.have.been.calledImmediatelyAfter(spyA);
-                }).to.throw("expected spyB to have been called immediately after function spyA() {}");
+                }).to.throw(calledRegex(spyB, "have been called immediately after", spyA));
             }
         });
 
@@ -142,22 +148,22 @@ describe("Messages", function () {
 
             expect(function () {
                 spyA.should.not.have.been.calledBefore(spyB);
-            }).to.throw("expected spyA to not have been called before function spyB() {}");
+            }).to.throw(calledRegex(spyA, "not have been called before", spyB));
 
             if (spyA.calledImmediatelyBefore) {
                 expect(function () {
                     spyA.should.not.have.been.calledImmediatelyBefore(spyB);
-                }).to.throw("expected spyA to not have been called immediately before function spyB() {}");
+                }).to.throw(calledRegex(spyA, "not have been called immediately before", spyB));
             }
 
             expect(function () {
                 spyB.should.not.have.been.calledAfter(spyA);
-            }).to.throw("expected spyB to not have been called after function spyA() {}");
+            }).to.throw(calledRegex(spyB, "not have been called after", spyA));
 
             if (spyB.calledImmediatelyAfter) {
                 expect(function () {
                     spyB.should.not.have.been.calledImmediatelyAfter(spyA);
-                }).to.throw("expected spyB to not have been called immediately after function spyA() {}");
+                }).to.throw(calledRegex(spyB, "not have been called immediately after", spyA));
             }
         });
     });
