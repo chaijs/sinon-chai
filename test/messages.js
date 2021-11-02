@@ -18,11 +18,11 @@ function makeErrorMessageTransform(transform) {
     };
 }
 var stripQuotes = makeErrorMessageTransform(function (message) {
-    return message.replace(/['"]/g, "");
+    return message.replace(/\\*['"]/g, "");
 });
 var stripColors = makeErrorMessageTransform(stripAnsi);
 var stripQuotesAndColors = makeErrorMessageTransform(function (message) {
-    return stripAnsi(message).replace(/['"]/g, "");
+    return stripAnsi(message).replace(/\\*['"]/g, "");
 });
 
 describe("Messages", function () {
