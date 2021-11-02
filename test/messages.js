@@ -105,7 +105,7 @@ describe("Messages", function () {
         function calledRegex(func, criteria, otherFunc) {
             return new RegExp(
                 "expected " + func.displayName + " to " + criteria +
-                " (function " + otherFunc.displayName + "\\(\\) \\{\\}|\\[Function\\])"
+                " (function " + otherFunc.displayName + "\\(\\) \\{\\}|\\[Function.*\\])"
             );
         }
         it("should be correct for the base cases", function () {
