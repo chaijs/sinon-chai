@@ -60,7 +60,7 @@ For more information on the behavior of each assertion, see
 [the documentation for the corresponding spy methods][spymethods]. These of course work on not only spies, but
 individual spy calls, stubs, and mocks as well.
 
-Note that you can negate any assertion with Chai's `.not`. E. g. for `notCalled` use `spy.should.have.not.been.called`.
+Note that you can negate any assertion with Chai's `.not`. E. g. for `notCalled` use `spy.should.have.not.been.called`. Similarly, note that the `always` methods are accessed with Chai's `.always` prefix; `should.have.been.alwaysCalledWith` will not work - instead, use `should.always.have.been.calledWith`.
 
 For simplicity, this library intentionally only implements Sinon's spy methods, and does not add an interface for `Sinon.assert.match`. Sinon's matchers are implemented by the `samsam` library, so if you want a should/expect interface to `assert.match` you may be interested in [chai-samsam](https://www.chaijs.com/plugins/chai-samsam/), which adds a `.deep.match` verb that will work with Sinon matchers.
 
