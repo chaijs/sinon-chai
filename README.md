@@ -62,7 +62,9 @@ individual spy calls, stubs, and mocks as well.
 
 Note that you can negate any assertion with Chai's `.not`. E. g. for `notCalled` use `spy.should.have.not.been.called`.
 
-For `assert` interface there is no need for this library. You can install [Sinon.JS assertions][sinonassertions] right into Chai's `assert` object with `expose`:
+For simplicity, this library intentionally only implements Sinon's spy methods, and does not add an interface for `Sinon.assert.match`. Sinon's matchers are implemented by the `samsam` library, so if you want a should/expect interface to `assert.match` you may be interested in [chai-samsam](https://www.chaijs.com/plugins/chai-samsam/), which adds a `.deep.match` verb that will work with Sinon matchers.
+
+For `assert` interface there is no need for `sinon-chai` or `chai-samsam`. You can install [Sinon.JS assertions][sinonassertions] right into Chai's `assert` object with `expose`:
 
 ```javascript
 var chai = require("chai");
