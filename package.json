@@ -21,6 +21,7 @@
   "license": "(BSD-2-Clause OR WTFPL)",
   "repository": "domenic/sinon-chai",
   "main": "./lib/sinon-chai.js",
+  "module": "./lib/sinon-chai.mjs",
   "files": [
     "lib"
   ],
@@ -28,7 +29,8 @@
     "test": "mocha",
     "test-travis": "npm install && npm install chai@$CHAI_VERSION && npm install sinon@$SINON_VERSION && npm test",
     "lint": "eslint .",
-    "cover": "nyc --reporter=html mocha && opener ./coverage/sinon-chai.js.html"
+    "cover": "nyc --reporter=html mocha && opener ./coverage/sinon-chai.js.html",
+    "prepublishOnly": "rollup -c"
   },
   "peerDependencies": {
     "chai": "^4.0.0",
@@ -37,9 +39,14 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
-    "mocha": "^7.0.1",
+    "mocha": "^9.0.1",
     "nyc": "^15.0.0",
     "opener": "^1.5.1",
+    "rollup": "^2.52.3",
     "sinon": "^9.0.0"
+  },
+  "exports": {
+    "import": "./lib/sinon-chai.mjs",
+    "require": "./lib/sinon-chai.js"
   }
 }

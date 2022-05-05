@@ -3,6 +3,13 @@
   "env": {
     "mocha": true,
     "node": true
+  },  
+  "parserOptions": {
+    "ecmaVersion": 5,
+    "sourceType": "script",
+    "ecmaFeatures": {
+      "modules": false
+    }
   },
   "rules": {
     "no-unused-expressions": "off"
