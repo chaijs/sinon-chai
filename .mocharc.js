@@ -1,5 +1,5 @@
 "use strict";
 
 module.exports = {
-    require: ["./test/common"]
+    require: ["./test/common.js"]
 };
