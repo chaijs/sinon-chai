@@ -1,14 +1,16 @@
-"use strict";
 
-var chai = require("chai");
-var sinonChai = require("../lib/sinon-chai");
+import * as chai from "chai";
+import sinonChai from "../lib/sinon-chai.js";
+
 chai.use(sinonChai);
 chai.should();
 
-exports.swallow = function (thrower) {
+function swallow(thrower) {
     try {
         thrower();
     } catch (e) {
         // Intentionally swallow
     }
-};
+}
+
+export default swallow;
