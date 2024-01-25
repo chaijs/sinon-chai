@@ -3,10 +3,11 @@
   "env": {
     "node": true,
     "amd": true,
-    "es6": false
+    "es6": true
   },
   "parserOptions": {
-    "ecmaVersion": 5
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
   "rules": {
     // Possible errors

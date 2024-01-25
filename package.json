@@ -1,6 +1,7 @@
 {
   "name": "sinon-chai",
   "description": "Extends Chai with assertions for the Sinon.JS mocking framework.",
+  "type": "module",
   "keywords": [
     "chai",
     "chai-plugin",
@@ -13,7 +14,7 @@
     "stubs",
     "mocks"
   ],
-  "version": "3.7.0",
+  "version": "4.0.0",
   "author": "Domenic Denicola <d@domenic.me> (https://domenic.me/)",
   "contributors": [
     "Simon de Lang <simondelang@gmail.com>"
@@ -35,11 +36,11 @@
     "sinon": ">=4.0.0"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^6.8.0",
-    "mocha": "^7.0.1",
-    "nyc": "^15.0.0",
-    "opener": "^1.5.1",
-    "sinon": "^9.0.0"
+    "chai": "^5.0.3",
+    "eslint": "^8.56.0",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "opener": "^1.5.2",
+    "sinon": "^17.0.1"
   }
 }
