@@ -280,7 +280,7 @@ describe("Messages", function () {
             }).to.throw("expected spy to not have been called with exact arguments 1, 2, 3");
             expect(function () {
                 spy.should.not.have.been.calledWithMatch(sinon.match(1));
-            }).to.throw("expected spy to not have been called with match\n1 match(\"foo\")");
+            }).to.throw("expected spy to not have been called with match\n1 match(1)");
             expect(function () {
                 spy.should.not.have.been.calledOnceWith(1, 2, 3);
             }).to.throw("expected spy to not have been called once with arguments 1, 2, 3");
@@ -296,7 +296,7 @@ describe("Messages", function () {
             }).to.throw("expected spy to not have been called with exact arguments 1, 2, 3");
             expect(function () {
                 spy.getCall(0).should.not.have.been.calledWithMatch(sinon.match(1));
-            }).to.throw("expected spy to not have been called with match\n1 match(\"foo\")");
+            }).to.throw("expected spy to not have been called with match\n1 match(1)");
         });
 
         it("should be correct for the always cases", function () {
