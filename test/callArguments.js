@@ -1,8 +1,5 @@
-"use strict";
-
-var sinon = require("sinon");
-var AssertionError = require("chai").AssertionError;
-var expect = require("chai").expect;
+import sinon from "sinon";
+import { expect, AssertionError } from "chai";
 
 describe("Call arguments", function () {
     var spy = null;

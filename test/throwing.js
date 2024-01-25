@@ -1,9 +1,6 @@
-"use strict";
-
-var sinon = require("sinon");
-var AssertionError = require("chai").AssertionError;
-var expect = require("chai").expect;
-var swallow = require("./common").swallow;
+import sinon from "sinon";
+import { expect, AssertionError } from "chai";
+import { swallow } from "./common.js";
 
 describe("Throwing", function () {
     describe("thrown()", function () {
