@@ -1,8 +1,6 @@
-"use strict";
-
-var sinon = require("sinon");
-var expect = require("chai").expect;
-var swallow = require("./common").swallow;
+import sinon from "sinon";
+import { expect } from "chai";
+import { swallow } from "./common.js";
 
 describe("Messages", function () {
     describe("about call count", function () {

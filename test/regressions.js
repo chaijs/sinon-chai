@@ -1,7 +1,5 @@
-"use strict";
-
-var sinon = require("sinon");
-var expect = require("chai").expect;
+import sinon from "sinon";
+import { expect } from "chai";
 
 describe("Regressions", function () {
     specify("GH-19: functions with `proxy` properties", function () {

@@ -1,9 +1,6 @@
-"use strict";
 /* eslint-disable new-cap, no-new */
-
-var sinon = require("sinon");
-var AssertionError = require("chai").AssertionError;
-var expect = require("chai").expect;
+import sinon from "sinon";
+import { expect, AssertionError } from "chai";
 
 describe("Calling with new", function () {
     var spy = null;

@@ -31,15 +31,16 @@
     "cover": "nyc --reporter=html mocha && opener ./coverage/sinon-chai.js.html"
   },
   "peerDependencies": {
-    "chai": "^4.0.0",
+    "chai": "^5.0.0",
     "sinon": ">=4.0.0"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
+    "chai": "^5.0.0",
     "eslint": "^6.8.0",
-    "mocha": "^7.0.1",
+    "mocha": "^10.0.0",
     "nyc": "^15.0.0",
     "opener": "^1.5.1",
     "sinon": "^9.0.0"
-  }
+  },
+  "type": "module"
 }
