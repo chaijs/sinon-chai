@@ -67,8 +67,8 @@ For simplicity, this library intentionally only implements Sinon's spy methods, 
 For `assert` interface there is no need for `sinon-chai` or `chai-samsam`. You can install [Sinon.JS assertions][sinonassertions] right into Chai's `assert` object with `expose`:
 
 ```javascript
-var chai = require("chai");
-var sinon = require("sinon");
+import * as chai from "chai";
+import sinon from "sinon";
 
 sinon.assert.expose(chai.assert, { prefix: "" });
 ```
@@ -79,9 +79,9 @@ Using Chai's `should`:
 
 ```javascript
 "use strict";
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
+import * as chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
 chai.should();
 chai.use(sinonChai);
 
@@ -104,10 +104,10 @@ Using Chai's `expect`:
 
 ```javascript
 "use strict";
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
-var expect = chai.expect;
+import * as chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+const expect = chai.expect;
 chai.use(sinonChai);
 
 function hello(name, cb) {
@@ -132,8 +132,8 @@ describe("hello", function () {
 Do an `npm install --save-dev sinon-chai` to get up and running. Then:
 
 ```javascript
-var chai = require("chai");
-var sinonChai = require("sinon-chai");
+import * as chai from "chai";
+import sinonChai from "sinon-chai";
 
 chai.use(sinonChai);
 ```
@@ -141,36 +141,9 @@ chai.use(sinonChai);
 You can of course put this code in a common test fixture file; for an example using [Mocha][], see
 [the Sinon–Chai tests themselves][fixturedemo].
 
-### AMD
-
-Sinon–Chai supports being used as an [AMD][] module, registering itself anonymously (just like Chai). So, assuming you
-have configured your loader to map the Chai and Sinon–Chai files to the respective module IDs `"chai"` and
-`"sinon-chai"`, you can use them as follows:
-
-```javascript
-define(function (require, exports, module) {
-    var chai = require("chai");
-    var sinonChai = require("sinon-chai");
-
-    chai.use(sinonChai);
-});
-```
-
-### `<script>` tag
-
-If you include Sinon–Chai directly with a `<script>` tag, after the one for Chai itself, then it will automatically plug
-in to Chai and be ready for use. Note that you'll want to get the latest browser build of Sinon.JS as well:
-
-```html
-<script src="chai.js"></script>
-<script src="sinon-chai.js"></script>
-<script src="sinon.js"></script>
-```
-
 ### Ruby on Rails
 
 Thanks to [Cymen Vig][], there's now [a Ruby gem][] of Sinon–Chai that integrates it with the Rails asset pipeline!
-
 
 [Sinon.JS]: http://sinonjs.org/
 [Chai]: http://chaijs.com/
