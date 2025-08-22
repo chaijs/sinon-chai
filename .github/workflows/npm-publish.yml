@@ -32,15 +32,12 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           cache: "npm"
       - run: npm ci
+      - run: npm i -g npm@latest
       - run: npm run build --if-present
       - run: npm version ${TAG_NAME} --git-tag-version=false
         env:
           TAG_NAME: ${{ github.ref_name }}
       - run: npm publish --provenance --access public --tag next
         if: "github.event.release.prerelease"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm_secret }}
       - run: npm publish --provenance --access public
         if: "!github.event.release.prerelease"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm_secret }}
